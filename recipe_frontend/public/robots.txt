@@ -1,3 +1,2 @@
-# PUBLIC_INTERFACE
 User-agent: *
 Disallow:

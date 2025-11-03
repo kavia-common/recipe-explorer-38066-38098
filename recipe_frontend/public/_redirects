@@ -1,4 +1,4 @@
 # PUBLIC_INTERFACE
-# Netlify-style SPA redirects (used by 'serve -s' as well)
-# Route all paths to index.html for client-side routing
-/*   /index.html   200
+# SPA routing rules for static serve environments (Netlify/serve compatibility)
+# Catch-all routes back to index.html
+/*    /index.html   200

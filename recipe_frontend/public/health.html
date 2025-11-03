@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- PUBLIC_INTERFACE: Static healthcheck page -->
+    <!-- PUBLIC_INTERFACE: Healthcheck meta -->
     <meta name="x-healthcheck" content="ok" />
+    <meta name="robots" content="noindex" />
     <title>OK</title>
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; color: #111827; }
-      .ok { display: inline-block; padding: 8px 12px; border-radius: 8px; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .ok { display:flex; align-items:center; justify-content:center; height:100vh; color:#10b981; }
     </style>
   </head>
   <body>
-    <div class="ok" aria-live="polite">ok</div>
+    <div class="ok">ok</div>
   </body>
 </html>
