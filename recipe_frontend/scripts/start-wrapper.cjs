@@ -32,7 +32,8 @@ function run(cmd, args) {
   const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
 
   if (isCI() && !FORCE_DEV) {
-    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137). Preferred: `npm run start:serve`. If a build already exists: `npm run start:serve:prebuilt`. For hot reload in CI use `npm run start:ci` or `npm run start:lowmem`. Set FORCE_DEV=true to override.');
+    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137).');
+    console.log('[recipe_frontend] Tip: Prefer `npm run start:serve` (or :prebuilt) and verify with `npm run healthcheck`. Set FORCE_DEV=true to force webpack dev server.');
     // Ensure minimal memory usage and deterministic port/host
     process.env.BROWSER = 'none';
     process.env.CI = 'true';

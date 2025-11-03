@@ -1,1 +1,1 @@
-# Placeholder to ensure public/assets exists for static serving.
+# placeholder to ensure /public/assets exists; assets are copied here by prebuild
