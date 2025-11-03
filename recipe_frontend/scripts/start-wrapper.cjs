@@ -35,6 +35,7 @@ function run(cmd, args) {
     console.log('[recipe_frontend] CI detected -> static build+serve (prevents watcher SIGKILL 137).');
     console.log('[recipe_frontend] Redirecting `npm start` -> `npm run start:serve` (non-watching, low memory).');
     console.log('[recipe_frontend] Tip: In orchestrated CI use `npm --prefix recipe_frontend run start:serve`.');
+    console.log('[recipe_frontend] Note: Dev server is intentionally avoided in CI to prevent exit 137 from watch mode.');
     // Enforce headless, CI, low-memory defaults
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
