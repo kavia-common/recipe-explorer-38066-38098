@@ -24,7 +24,7 @@ Starts the CRA dev server in CI-friendly mode:
 - Disables opening a browser (`BROWSER=none`)
 - Sets `CI=true`
 - Binds to all interfaces (`HOST=0.0.0.0`)
-- Uses `REACT_APP_PORT` if set (defaults handled by the shell or orchestrator)
+- Uses `REACT_APP_PORT` or falls back to `PORT` if provided by orchestrator
 - Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, toggle via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
 - For extremely constrained memory, use `npm run start:lowmem` which caps Node memory via `NODE_OPTIONS=--max-old-space-size=256`.
 
