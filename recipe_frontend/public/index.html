@@ -1,21 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- PUBLIC_INTERFACE -->
+    <!-- App base HTML: includes healthcheck meta so / returns 200 + ok marker without heavy runtime -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE: Health meta for CI readiness checks -->
+    <!-- Healthcheck meta (also injected at runtime by src/index.js) -->
     <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Recipe Explorer - lightweight React app"
+      content="Recipe Explorer - a modern React frontend for browsing recipes."
     />
     <title>Recipe Explorer</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>JavaScript is required to run this application.</noscript>
     <div id="root"></div>
-    <!-- CRA will inject bundle -->
   </body>
 </html>

@@ -9,7 +9,8 @@ const { spawnSync } = require('child_process');
 
 function isCI() {
   const v = String(process.env.CI || '');
-  return /^(1|true|yes)$/i.test(v);
+  // Also treat common CI providers by presence of env as CI=true
+  return /^(1|true|yes)$/i.test(v) || !!process.env.GITHUB_ACTIONS || !!process.env.GITLAB_CI;
 }
 
 function run(cmd, args) {
@@ -44,6 +45,7 @@ function run(cmd, args) {
   process.env.HOST = process.env.HOST || '0.0.0.0';
   process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
   process.env.PORT = process.env.REACT_APP_PORT;
+  // Keep dev memory moderate; can be overridden by env
   process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=384';
 
   // Start CRA dev server with react-app-rewired
