@@ -51,10 +51,6 @@ function run(cmd, args) {
       // ensure cap isn't too high
       process.env.NODE_OPTIONS = process.env.NODE_OPTIONS.replace(/--max-old-space-size=\d+/g, '--max-old-space-size=128');
     }
-    // Provide a visible hint if someone set FORCE_DEV
-    if (process.env.FORCE_DEV) {
-      console.warn('[recipe_frontend] WARNING: FORCE_DEV is set but ignored because CI-safe static serving is enforced by wrapper.');
-    }
     // Ensure healthcheck path default
     process.env.REACT_APP_HEALTHCHECK_PATH = process.env.REACT_APP_HEALTHCHECK_PATH || '/health.html';
     return run(npmCmd, ['run', 'start:serve']);
