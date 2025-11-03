@@ -1,3 +1,3 @@
 # PUBLIC_INTERFACE
-# Netlify/serve-compatible SPA redirects: all routes fallback to index.html
+# Ensure all routes fallback to index.html for SPA behavior during static serving
 /*    /index.html   200

@@ -1,6 +1,6 @@
 {
   "short_name": "Recipes",
-  "name": "Recipe Explorer Frontend",
+  "name": "Recipe Explorer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +11,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#2563EB",
-  "background_color": "#ffffff"
+  "background_color": "#f9fafb"
 }

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
-    <!--
-      PUBLIC INTERFACE
-      health.html - Static health page used by CI healthcheck.
-      Contains the x-healthcheck meta tag so readiness checks succeed without booting React.
-    -->
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <title>Health</title>
+    <!-- PUBLIC_INTERFACE: Healthcheck marker -->
     <meta name="x-healthcheck" content="ok" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>OK</title>
+    <meta name="robots" content="noindex" />
     <style>
-      html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-      .ok { display:flex; align-items:center; justify-content:center; height:100vh; color:#16a34a; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #f9fafb; color: #111827; }
+      .card { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); max-width: 560px; }
+      .ok { color: #059669; font-weight: 600; }
+      .muted { color: #6b7280; font-size: 12px; margin-top: 8px; }
     </style>
   </head>
   <body>
-    <div class="ok" role="status" aria-label="Service healthy">OK</div>
+    <div class="card">
+      <div class="ok">ok</div>
+      <div class="muted">Recipe Explorer frontend static health endpoint</div>
+    </div>
   </body>
 </html>

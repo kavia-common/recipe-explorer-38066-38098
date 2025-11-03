@@ -1,4 +1,3 @@
 # PUBLIC_INTERFACE
-# Robots configuration for CI/staging; disallow crawling by default
 User-agent: *
-Disallow: /
+Disallow:
