@@ -35,7 +35,7 @@
   --color-basic-white: ;
   --color-color-grey-3: ;
 
-  /* Explicit hex color tokens (from YAML palette and Ocean Professional hints) */
+  /* Explicit hex color tokens */
   --color-ffffff: #ffffff;
   --color-292929: #292929;
   --color-000000: #000000;
@@ -63,7 +63,7 @@
   --color-c1c1c1: #c1c1c1;
   --color-ffe1b3: #ffe1b3;
   --color-ffad30: #ffad30;
-  --color-dbeb e7: #dbebe7;
+  --color-dbeb-e7: #dbebe7;
   --color-898989: #898989;
   --color-292d32: #292d32;
   --color-181818: #181818;
@@ -81,13 +81,6 @@
   --color-f4f4f4: #f4f4f4;
   --color-9747ff: #9747ff;
   --color-828282: #828282;
-
-  /* Ocean Professional theme tokens */
-  --ocean-primary: #2563EB;
-  --ocean-secondary: #F59E0B;
-  --ocean-surface: #ffffff;
-  --ocean-text: #111827;
-  --ocean-background: #f9fafb;
 
   /* Typography variables (subset used on this screen and base set) */
   --typo-60-family: 'Poppins', sans-serif;
@@ -204,20 +197,10 @@
   --style-32-background: var(--color-121212);
   --style-32-border-radius: 100px;
 
-  /* style_33, 34, 35, 16 for status bar assets */
-  --style-33-background: var(--color-303030);
-  --style-33-opacity: 0.4;
-  --style-34-background: var(--color-303030);
-  --style-34-border-color: var(--color-4cd964);
-  --style-34-border-width: 0;
-  --style-16-background: var(--color-000000);
-  --style-16-border-radius: 1.2px;
-  --style-35-background: var(--color-303030);
-
   /* style-126: white bg radius 10 with shadow_3 */
   --style-126-background: var(--color-ffffff);
   --style-126-border-radius: 10px;
-  --shadow-3: 0 0 20px 0 rgba(0,0,0,0.1);
+  --shadow-3: 0 0 20px 0 rgba(0,0,0,1);
 
   /* Spacing scale (common approximations) */
   --spacing-xs: 4px;
@@ -229,7 +212,7 @@
 
 /* Global resets and helpers */
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--ocean-background); }
+html, body { margin: 0; padding: 0; }
 img { display: block; }
 
 /* Utility to apply typography tokens */

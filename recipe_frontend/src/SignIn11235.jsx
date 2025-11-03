@@ -7,6 +7,8 @@ import React, { useEffect, useRef } from 'react';
  * - Injects the original HTML structure (converted to JSX)
  * - Loads styles from public/assets to preserve exact CSS measurements
  * - Ports required interactivity from assets/sign-in-11-235.js using React hooks
+ *
+ * Note: Asset paths use /assets/* which maps to recipe_frontend/public/assets during build/serve.
  */
 function SignIn11235() {
   const rootRef = useRef(null);

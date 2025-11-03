@@ -1,0 +1,2 @@
+# This file ensures the /public/assets directory is included in version control.
+# Images used by the SignIn11235 component should be placed here and referenced as /assets/<filename>.

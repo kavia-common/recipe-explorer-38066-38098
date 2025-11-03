@@ -17,15 +17,15 @@ In the project directory, you can run:
 Runs the app in development mode (hot-reload).  
 Open http://localhost:3000 to view it in your browser.
 
-> Important for CI/non-interactive environments: use `npm run start:serve` (build and static serve) to avoid the orchestrator killing a long-running, higher-memory dev server (exit code 137). If you need the dev server, use `npm run start:ci` or `npm run start:lowmem` which cap memory and disable auto-opening the browser.
+> CI/non-interactive environments should use `npm run start:serve` (build and static serve) to avoid the orchestrator killing a long-running, higher-memory dev server (exit code 137). If you need the dev server, use `npm run start:ci` or `npm run start:lowmem` which cap memory and disable auto-opening the browser.
 
 ### `npm run start:ci`
 Starts the CRA dev server in CI-friendly mode:
 - Disables opening a browser (`BROWSER=none`)
 - Sets `CI=true`
 - Binds to all interfaces (`HOST=0.0.0.0`)
-- Uses `REACT_APP_PORT` for the port if set
-- Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, can be toggled via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
+- Uses `REACT_APP_PORT` if set (defaults handled by the shell or orchestrator)
+- Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, toggle via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
 - For extremely constrained memory, use `npm run start:lowmem` which caps Node memory via `NODE_OPTIONS=--max-old-space-size=256`.
 
 ### `npm run start:serve` (Recommended for CI)
@@ -34,10 +34,10 @@ This mode is non-watching, low-memory, and stable under CI orchestrators:
 ```bash
 npm run start:serve
 ```
-The static server binds to `${REACT_APP_PORT:-3000}` and `HOST=0.0.0.0`.
+The static server binds to `REACT_APP_PORT` (default 3000) and `HOST=0.0.0.0`.
 
 ### `npm run healthcheck`
-Simple HTTP check for static served app (expects 200 on `${REACT_APP_HEALTHCHECK_PATH:-/}`):
+Simple HTTP check for static served app (expects 200 on `REACT_APP_HEALTHCHECK_PATH` (default `/`)):
 ```bash
 npm run healthcheck
 ```
@@ -65,26 +65,15 @@ Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected i
 
 ## Deprecation and Browserslist Notes
 - Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware` / `onBeforeSetupMiddleware`) are upstream in CRA/webpack-dev-server and safe. They do not affect builds. CI path (`start:serve`) avoids running the dev server.
-- Browserslist database: we trigger `npx update-browserslist-db@latest` on `postinstall` to keep it fresh and quiet the "browserslist is old" warnings.
+- Browserslist database: `postinstall` runs `npx update-browserslist-db@latest` to keep it fresh and quiet warnings.
 
 ## Customization
 
 ### Colors
 
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+The main brand colors are defined as CSS variables in `src/App.css`.
 
 ### Components
-
 This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
 
 Common components include:
@@ -94,23 +83,4 @@ Common components include:
 - Typography (`.title`, `.subtitle`, `.description`)
 
 ## Learn More
-
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
