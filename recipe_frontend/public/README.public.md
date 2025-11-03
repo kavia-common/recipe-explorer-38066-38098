@@ -1,6 +1,7 @@
 # PUBLIC_INTERFACE
-This directory contains static assets for the Recipe Explorer frontend.
+# Public Artifacts
 
-- index.html includes `<meta name="x-healthcheck" content="ok">` for readiness checks.
-- health.html provides a lightweight health endpoint that does not require React to boot.
-- _redirects ensures SPA routing works when using static servers (all paths -> index.html).
+- index.html: base document; includes `<meta name="x-healthcheck" content="ok">`
+- health.html: static low-memory readiness endpoint; same health meta as index.html
+- _redirects: SPA redirect rules so deep links resolve to index.html under static serve
+- robots.txt: blocks crawlers in CI by default

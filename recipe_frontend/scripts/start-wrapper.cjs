@@ -42,9 +42,9 @@ function run(cmd, args) {
     process.env.PORT = port;
     // Default disable sourcemaps in CI unless explicitly enabled
     process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
-    // Cap memory lower to further reduce OOM chances
+    // Cap memory lower to further reduce OOM chances (CI often limited)
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
-      process.env.NODE_OPTIONS = '--max-old-space-size=256';
+      process.env.NODE_OPTIONS = '--max-old-space-size=192';
     }
 
     // Build + serve path (includes internal healthcheck probe)
