@@ -1,4 +1,6 @@
 # PUBLIC_INTERFACE
-# SPA fallback for static hosting (used by 'serve -s' and platforms that honor Netlify-style redirects)
-# Redirect all non-file requests to index.html
+# SPA routing for static hosting
+# Serve index.html for all non-file routes
 /*    /index.html   200
+# Keep health endpoint as a file (no rewrite)
+#/health.html 200

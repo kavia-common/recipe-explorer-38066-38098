@@ -5,6 +5,7 @@
 
 - Healthcheck after startup:
   npm --prefix recipe_frontend run healthcheck
+  # Probes http://127.0.0.1:${REACT_APP_PORT:-3000}/health.html first, then '/'
 
 - If you need the dev server (hot reload), use capped-memory variants and ensure PORT is propagated:
   REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:ci

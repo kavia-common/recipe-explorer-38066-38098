@@ -6,6 +6,7 @@
 
 - Validate readiness:
   npm run healthcheck
+  # Checks /health.html (static) to avoid booting React during readiness
 
 - If hot reload is needed (local dev/CI with watch):
   REACT_APP_PORT=${REACT_APP_PORT:-3000} npm run start:ci     # 384MB cap

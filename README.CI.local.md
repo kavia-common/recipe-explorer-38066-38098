@@ -7,6 +7,7 @@ The `recipe_frontend` is optimized for CI stability.
 
 - Validate readiness:
   npm --prefix recipe_frontend run healthcheck
+  # Probes /health.html (static) → low memory readiness
 
 - If you specifically need the dev server (hot-reload), use:
   REACT_APP_PORT=${REACT_APP_PORT:-3000} npm --prefix recipe_frontend run start:ci

@@ -48,8 +48,8 @@ After `start:serve`, you can verify readiness:
 ```bash
 npm run healthcheck
 ```
-This expects HTTP 200 on `http://localhost:${REACT_APP_PORT:-3000}${REACT_APP_HEALTHCHECK_PATH:-/}`.
-Additionally, fetching `/` returns an index.html that includes `<meta name="x-healthcheck" content="ok">` injected by src/index.js as a lightweight liveness indicator.
+The script first checks `http://127.0.0.1:${REACT_APP_PORT:-3000}${REACT_APP_HEALTHCHECK_PATH:-/health.html}` (static, no React boot).
+If that fails, it falls back to `/`. Both `public/health.html` and `public/index.html` include `<meta name="x-healthcheck" content="ok">` so probes succeed without heavy runtime.
 
 ### `npm test`
 Launches the test runner in non-watch mode by default via project script, with `CI=true` and `--passWithNoTests` to avoid long watches or failures when no tests are present.
