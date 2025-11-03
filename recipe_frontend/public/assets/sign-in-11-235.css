@@ -25,7 +25,7 @@
 .battery { position: absolute; right: 0; top: 0; width: 24.5px; height: 11.5px; }
 .battery-body { position: absolute; inset: 0; background: var(--style-33-background); opacity: var(--style-33-opacity); border-radius: 2px; }
 .battery-notch { position: absolute; right: -1.5px; top: 3.35px; width: 1.5px; height: 4px; background: var(--color-000000); }
-.battery-level { position: absolute; left: 2px; top: 2.08px; height: 7.6666665px; background: var(--color-4cd964); border-radius: 1px; }
+.battery-level { position: absolute; left: 2px; top: 2.08px; width: 18px; height: 7.6666665px; background: var(--color-4cd964); }
 
 /* Cellular bars */
 .cellular { position: absolute; left: 0; top: 1px; width: 17.1px; height: 10.7px; }
@@ -47,24 +47,19 @@
   position: absolute;
   left: 30px;
   top: 94px;
-  width: 315px;
+  width: 155px;
   height: 75px;
 }
 .title-hello { position: absolute; left: 0px; top: 0px; margin: 0; }
 .title-welcome { position: absolute; left: 0px; top: 45px; margin: 0; }
 
-/* Form base to avoid default margins */
-.sign-in-form { margin: 0; }
-
 /* Email input component at 456,-204 -> left: 30, top: 226 */
-.input-field {
-  width: 315px;
-  height: 81px;
-}
 .input-field.email {
   position: absolute;
   left: 30px;
   top: 226px;
+  width: 315px;
+  height: 81px;
 }
 .input-field.email .input-rect {
   position: absolute;
@@ -77,27 +72,13 @@
   position: absolute; left: 20px; top: 45px; margin: 0;
 }
 
-/* Input fields actual interactive input positioned on top of rect */
-.field-input {
-  position: absolute;
-  left: 12px;
-  top: 33px;
-  width: 291px;
-  height: 40px;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-family: var(--typo-66-family);
-  font-size: var(--typo-66-size);
-  line-height: var(--typo-66-line-height);
-  color: var(--typo-66-color);
-}
-
 /* Password input component at 456,-93 -> left: 30, top: 337 */
 .input-field.password {
   position: absolute;
   left: 30px;
   top: 337px;
+  width: 315px;
+  height: 81px;
 }
 .input-field.password .input-rect {
   position: absolute;
@@ -111,8 +92,8 @@
 }
 
 /* Forgot Password at 466,8 -> left: 40, top: 438 */
-.forgot-area { position: absolute; left: 40px; top: 438px; width: 135px; height: 17px; }
-.forgot-text { margin: 0; text-decoration: none; color: var(--color-ff9c00); }
+.forgot-area { position: absolute; left: 40px; top: 438px; width: 97px; height: 17px; }
+.forgot-text { margin: 0; }
 
 /* Divider line at 516,130 -> left: 90, top: 560; width 195x17.
    Lines: left line at 516,139 (x relative 0, y 9), right line at 661,139 (x rel 145, y 9), 50px each */
@@ -130,7 +111,7 @@
 .divider-line .line-left { left: 0px; }
 .divider-line .line-right { left: 145px; }
 .divider-line .divider-text {
-  position: absolute; left: 57px; top: 0px; margin: 0; color: var(--color-d9d9d9);
+  position: absolute; left: 57px; top: 0px; margin: 0;
 }
 
 /* Social buttons (squares 44x44) */
@@ -183,7 +164,7 @@
   padding: 0;
   cursor: pointer;
 }
-.big-button-label { position: absolute; left: 85px; top: 18px; color: #fff; }
+.big-button-label { position: absolute; left: 85px; top: 18px; }
 .big-button-icon { position: absolute; left: 240px; top: 20px; width: 20px; height: 20px; image-rendering: -webkit-optimize-contrast; }
 
 /* Home indicator at 426,348 -> left: 0, top: 778; width 375x34; inner line at 546,369: left 120, top 21; size 135x5 */
@@ -212,9 +193,4 @@
   width: 177px;
   height: 17px;
   margin: 0;
-  color: var(--color-121212);
-}
-.signup-text .signup-link {
-  color: var(--color-ff9c00);
-  text-decoration: none;
 }

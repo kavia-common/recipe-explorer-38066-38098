@@ -7,12 +7,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.1",
     "react-scripts": "^5.0.1",
-    "serve": "^14.2.3"
+    "serve": "^14.2.3",
+    "cross-env": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:ci": "cross-env BROWSER=none CI=true HOST=${HOST:-0.0.0.0} PORT=${REACT_APP_PORT:-3000} GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} NODE_OPTIONS=--max-old-space-size=384 react-scripts start",
-    "start:lowmem": "cross-env BROWSER=none CI=true NODE_OPTIONS=--max-old-space-size=256 HOST=${HOST:-0.0.0.0} PORT=${REACT_APP_PORT:-3000} GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",
+    "start:ci": "cross-env BROWSER=none CI=true HOST=0.0.0.0 PORT=${REACT_APP_PORT:-3000} GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} NODE_OPTIONS=--max-old-space-size=384 react-scripts start",
+    "start:lowmem": "cross-env BROWSER=none CI=true NODE_OPTIONS=--max-old-space-size=256 HOST=0.0.0.0 PORT=${REACT_APP_PORT:-3000} GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",
     "build": "react-scripts build",
     "build:ci": "cross-env CI=true GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} NODE_OPTIONS=--max-old-space-size=256 react-scripts build",
     "serve": "serve -s build -L -n -C --single -l ${REACT_APP_PORT:-3000}",
@@ -37,8 +38,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }

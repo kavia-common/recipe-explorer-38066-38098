@@ -17,16 +17,16 @@ In the project directory, you can run:
 Runs the app in development mode (hot-reload).  
 Open http://localhost:3000 to view it in your browser.
 
-> CI/non-interactive environments: prefer `npm run start:serve` (build and static serve) or `npm run start:ci` to avoid the orchestrator killing a long-running, higher-memory dev server with watch mode. `start:serve` is most memory-efficient.
+> Important for CI/non-interactive environments: use `npm run start:serve` (build and static serve) to avoid the orchestrator killing a long-running, higher-memory dev server (exit code 137). If you need the dev server, use `npm run start:ci` or `npm run start:lowmem` which cap memory and disable auto-opening the browser.
 
 ### `npm run start:ci`
 Starts the CRA dev server in CI-friendly mode:
 - Disables opening a browser (`BROWSER=none`)
 - Sets `CI=true`
-- Binds to all interfaces by default (`HOST=0.0.0.0`, overridable)
+- Binds to all interfaces (`HOST=0.0.0.0`)
 - Uses `REACT_APP_PORT` for the port if set
 - Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, can be toggled via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
-- For extremely constrained memory, you can use `npm run start:lowmem` which caps Node memory via `NODE_OPTIONS=--max-old-space-size=256`.
+- For extremely constrained memory, use `npm run start:lowmem` which caps Node memory via `NODE_OPTIONS=--max-old-space-size=256`.
 
 ### `npm run start:serve` (Recommended for CI)
 Builds the app with low memory settings and serves static files via `serve`.  
@@ -34,7 +34,7 @@ This mode is non-watching, low-memory, and stable under CI orchestrators:
 ```bash
 npm run start:serve
 ```
-The static server binds to `${REACT_APP_PORT:-3000}` and `HOST=0.0.0.0` if set.
+The static server binds to `${REACT_APP_PORT:-3000}` and `HOST=0.0.0.0`.
 
 ### `npm run healthcheck`
 Simple HTTP check for static served app (expects 200 on `${REACT_APP_HEALTHCHECK_PATH:-/}`):
@@ -65,7 +65,7 @@ Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected i
 
 ## Deprecation and Browserslist Notes
 - Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware` / `onBeforeSetupMiddleware`) are upstream in CRA/webpack-dev-server and safe. They do not affect builds. CI path (`start:serve`) avoids running the dev server.
-- Browserslist database: we trigger `npx update-browserslist-db@latest` on `postinstall` to keep it fresh.
+- Browserslist database: we trigger `npx update-browserslist-db@latest` on `postinstall` to keep it fresh and quiet the "browserslist is old" warnings.
 
 ## Customization
 
