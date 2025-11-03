@@ -1,4 +1,3 @@
 # PUBLIC_INTERFACE
-# SPA redirects for static hosting (e.g., serve, Netlify-style)
-# Route all paths to index.html so React Router can handle them.
+# Netlify/serve-compatible SPA rewrites: send all non-file paths to index.html
 /*    /index.html   200
