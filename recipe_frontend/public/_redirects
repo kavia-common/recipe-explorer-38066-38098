@@ -1,2 +1,4 @@
-# Redirect all routes to index.html for SPA behavior
-/*   /index.html   200
+# PUBLIC_INTERFACE
+# SPA fallback for static hosting (used by 'serve -s' and platforms that honor Netlify-style redirects)
+# Redirect all non-file requests to index.html
+/*    /index.html   200

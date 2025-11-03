@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Health</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Static health marker; matches what healthcheck script looks for -->
-    <meta name="x-healthcheck" content="ok" />
-    <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 32px; color: #111827; }
-      .ok { display: inline-block; padding: 8px 12px; border-radius: 8px; background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
-    </style>
-  </head>
-  <body>
-    <div class="ok" role="status" aria-live="polite">ok</div>
-  </body>
+<head>
+  <!-- PUBLIC_INTERFACE -->
+  <!-- Static healthcheck page for CI readiness probes.
+       This page loads without booting React, minimizing memory usage. -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="x-healthcheck" content="ok" />
+  <title>Health</title>
+  <style>
+    html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .ok { padding: 16px; color: #065f46; background: #ecfdf5; border: 1px solid #a7f3d0; margin: 16px; border-radius: 8px; }
+    .meta { color: #111827; opacity: 0.8; font-size: 12px; margin: 16px; }
+  </style>
+</head>
+<body>
+  <div class="ok">ok</div>
+  <div class="meta">This is a static health endpoint. The React app also injects &lt;meta name="x-healthcheck" content="ok"&gt; into index.html.</div>
+</body>
 </html>

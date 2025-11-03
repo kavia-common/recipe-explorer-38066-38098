@@ -14,4 +14,10 @@
   REACT_APP_PORT=3000 npm run start:ci
   REACT_APP_PORT=3000 npm run start:lowmem
 
-Note: Running `npm start` with CI=true will auto-redirect to `start:serve` to prevent watch server termination by the orchestrator. Prefer static serve in CI.
+Notes:
+- Assets are auto-copied to public/assets via prebuild.
+- Health meta is injected by src/index.js: <meta name="x-healthcheck" content="ok"> and also included in public/health.html (present by default).
+- A static /health.html is served without booting React to reduce memory during readiness checks. The healthcheck script first probes this path.
+- SPA redirects for static serving are configured via public/_redirects (present by default) so deep links resolve to index.html.
+- Webpack dev server deprecation warnings (onBeforeSetupMiddleware/onAfterSetupMiddleware) are upstream and safe. Prefer static serve in CI to avoid noisy warnings and watcher processes.
+
