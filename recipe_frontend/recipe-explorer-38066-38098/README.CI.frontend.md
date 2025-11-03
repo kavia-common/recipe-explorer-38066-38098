@@ -5,6 +5,8 @@ To avoid exit code 137 (watch server killed), use static serve:
 
 - Start (low memory):
   npm --prefix recipe_frontend run start:serve
+- Start (serve prebuilt only, lowest memory):
+  npm --prefix recipe_frontend run start:serve:prebuilt
 
 - Healthcheck:
   npm --prefix recipe_frontend run healthcheck

@@ -3,6 +3,8 @@
 - Preferred in CI to avoid exit code 137 (watch server killed by orchestrator):
   npm run start:serve
   (Note: npm start with CI=true auto-redirects to start:serve)
+  For environments that prebuild artifacts, use:
+  npm run start:serve:prebuilt
 
 - Validate readiness:
   npm run healthcheck

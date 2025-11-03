@@ -3,6 +3,8 @@
 
 - Default recommendation (avoids exit code 137 in CI): 
   npm run start:serve
+  # If a build already exists, you can skip building and only serve:
+  npm run start:serve:prebuilt
   # explicit CI alias (sets CI=true):
   npm run start:serve:ci
 
