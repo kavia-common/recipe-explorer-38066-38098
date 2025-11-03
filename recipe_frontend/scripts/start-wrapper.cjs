@@ -47,7 +47,7 @@ function run(cmd, args) {
     process.env.GENERATE_SOURCEMAP = sm;
     // Cap memory harder to avoid 137 in very constrained CI
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
-      process.env.NODE_OPTIONS = '--max-old-space-size=160';
+      process.env.NODE_OPTIONS = '--max-old-space-size=128';
     }
     return run(npmCmd, ['run', 'start:serve']);
   }
