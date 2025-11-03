@@ -1,3 +1,4 @@
 # PUBLIC_INTERFACE
-# Ensure SPA deep links route to index.html in static hosting/serve
+# SPA redirect rules for static hosting (serve, Netlify-style)
+# All routes go to index.html
 /*    /index.html   200
