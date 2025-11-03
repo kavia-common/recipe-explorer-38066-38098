@@ -30,13 +30,12 @@ function run(cmd, args) {
   // Allow explicit override to dev server even in CI when absolutely necessary
   const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
 
+  // If CI detected and not forcing dev, always redirect to static serve
   if (isCI() && !FORCE_DEV) {
     console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137).');
-    console.log('[recipe_frontend] Action: redirecting npm start to `npm run start:serve` (static build + serve) for CI stability.');
-    console.log('[recipe_frontend] Tip: Prefer `npm run start:serve` (or :prebuilt) and verify with `npm run healthcheck`.');
-    console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and use `npm run start:ci`.');
-    console.log('[recipe_frontend] Binding to HOST=0.0.0.0 is intentional in CI to allow container networking.');
-    // Ensure minimal memory usage and deterministic port/host
+    console.log('[recipe_frontend] Redirecting `npm start` to `npm run start:serve` (static build + serve).');
+    console.log('[recipe_frontend] Use `npm run start:serve` directly in CI or `npm run start:serve:prebuilt` if artifacts exist.');
+    console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and run `npm run start:ci`.');
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
@@ -48,12 +47,12 @@ function run(cmd, args) {
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
       process.env.NODE_OPTIONS = '--max-old-space-size=192';
     }
-    // Build + serve path (includes internal healthcheck probe triggered by start:serve)
     return run(npmCmd, ['run', 'start:serve']);
   }
 
   // Local dev or explicit override (non-CI)
-  console.log('[recipe_frontend] Starting webpack dev server (non-CI or FORCE_DEV=true). To reduce memory usage in CI, prefer `npm run start:serve`.');
+  console.log('[recipe_frontend] Starting webpack dev server (non-CI or FORCE_DEV=true).');
+  console.log('[recipe_frontend] Tip: In CI use `npm run start:serve` to avoid exit code 137.');
   process.env.BROWSER = 'none';
   process.env.HOST = process.env.HOST || '0.0.0.0';
   const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
