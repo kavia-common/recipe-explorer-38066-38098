@@ -69,7 +69,11 @@ Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected i
 - Browserslist database: `postinstall` runs `npx update-browserslist-db@latest` to keep it fresh and quiet warnings.
 
 ## Sign In Screen
-The integrated Sign In screen is available at `/sign-in` (component `SignIn11235.jsx`) and uses pixel-accurate CSS under `public/assets/*`.
+The integrated Sign In screen is available at `/sign-in` (component `SignIn11235.jsx`) and uses pixel-accurate CSS under `public/assets/*`. If you use your own assets, place them in `public/assets` and reference them via `/assets/...` in JSX.
 
-## Learn More
-To learn React, check out the [React documentation](https://reactjs.org/).
+## CI/Orchestrator Stability
+Exit code 137 typically indicates the dev server was killed by the orchestrator (memory/time). To avoid this:
+- Prefer `npm run start:serve` in CI.
+- Use `npm run start:ci` or `npm run start:lowmem` only when hot reload is required.
+- Ensure `REACT_APP_PORT` is set or allow the default 3000.
+- Use `npm run healthcheck` after starting to verify readiness.
