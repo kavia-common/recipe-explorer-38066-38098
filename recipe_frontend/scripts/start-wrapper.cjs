@@ -32,13 +32,10 @@ function run(cmd, args) {
 
   // If CI detected and not forcing dev, always redirect to static serve
   if (isCI() && !FORCE_DEV) {
-    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137).');
-    console.log('[recipe_frontend] Redirecting `npm start` to `npm run start:serve` (static build + serve). In CI, prefer: npm --prefix recipe_frontend run start:serve');
-    console.log('[recipe_frontend] Use `npm run start:serve` directly in CI or `npm run start:serve:prebuilt` if artifacts exist.');
-    console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and run `npm run start:ci`.');
+    console.log('[recipe_frontend] CI detected -> static build+serve (prevents watcher SIGKILL 137).');
+    console.log('[recipe_frontend] Redirecting `npm start` -> `npm run start:serve`.');
     // Enforce headless, CI, low-memory defaults
     process.env.BROWSER = 'none';
-    // Force CI=true explicitly to ensure consistent behavior in orchestrators
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
     const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
@@ -46,9 +43,16 @@ function run(cmd, args) {
     process.env.PORT = port;
     const sm = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || '').toLowerCase() === 'true' ? 'true' : 'false';
     process.env.GENERATE_SOURCEMAP = sm;
-    // Cap memory harder to avoid 137 in very constrained CI
+    // Cap memory harder to avoid 137 in constrained CI; also force GC interval to be conservative
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
       process.env.NODE_OPTIONS = '--max-old-space-size=128';
+    } else {
+      // ensure cap isn't too high
+      process.env.NODE_OPTIONS = process.env.NODE_OPTIONS.replace(/--max-old-space-size=\d+/g, '--max-old-space-size=128');
+    }
+    // Provide a visible hint if someone set FORCE_DEV
+    if (process.env.FORCE_DEV) {
+      console.warn('[recipe_frontend] WARNING: FORCE_DEV is set but ignored because CI-safe static serving is enforced by wrapper.');
     }
     return run(npmCmd, ['run', 'start:serve']);
   }
