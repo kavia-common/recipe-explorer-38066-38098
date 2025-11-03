@@ -1,4 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
+# PUBLIC_INTERFACE
+# robots rules for CI/static serve
 User-agent: *
 Disallow:
 Sitemap: /sitemap.xml

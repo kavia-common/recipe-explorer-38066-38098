@@ -20,7 +20,7 @@ function copyFile(src, dst) {
     console.log(`Copied ${src} -> ${dst}`);
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.warn(`Skip copy ${src}: ${e.message}`);
+    console.warn(`[copy-assets] Skip copy ${src}: ${e.message}`);
   }
 }
 

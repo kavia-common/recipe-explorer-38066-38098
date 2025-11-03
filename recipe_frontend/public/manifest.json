@@ -1,20 +1,15 @@
 {
-  "short_name": "Recipes",
-  "name": "Recipe Explorer",
+  "short_name": "Recipe",
+  "name": "Recipe Explorer Frontend",
   "icons": [
     {
-      "src": "logo192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "logo512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#2563EB",
-  "background_color": "#f9fafb"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
 }
