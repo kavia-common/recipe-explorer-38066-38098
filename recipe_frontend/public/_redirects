@@ -1,4 +1,2 @@
 # PUBLIC_INTERFACE
-# SPA redirect rules for static hosting (serve, Netlify-style)
-# All routes go to index.html
 /*    /index.html   200

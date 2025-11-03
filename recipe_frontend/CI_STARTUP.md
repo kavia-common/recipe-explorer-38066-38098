@@ -14,3 +14,4 @@
 Notes:
 - Assets are auto-copied to public/assets via prebuild.
 - Health meta is injected by src/index.js: <meta name="x-healthcheck" content="ok">.
+- A static /health.html is served without booting React to reduce memory during readiness checks.
