@@ -47,6 +47,7 @@ function stripSourceMapLoader(config) {
 
 module.exports = {
   // PUBLIC_INTERFACE
+  // Webpack override used by react-app-rewired to keep builds stable in CI.
   webpack: function override(config, env) {
     // Disable source maps unless explicitly enabled
     const enableSourceMaps =

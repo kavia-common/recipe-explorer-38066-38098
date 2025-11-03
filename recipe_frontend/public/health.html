@@ -1,38 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
-    <!-- Lightweight health endpoint used in CI to avoid spinning up React -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Healthcheck marker required by npm run healthcheck -->
+    <!-- PUBLIC_INTERFACE: Health meta for readiness probes -->
     <meta name="x-healthcheck" content="ok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ok</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-        background: #ffffff;
-        color: #111827;
-      }
-      .page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40vh;
-      }
-      .ok {
-        padding: 8px 12px;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        background: #f9fafb;
-      }
-    </style>
   </head>
   <body>
-    <div class="page">
-      <div class="ok">ok</div>
-    </div>
+    ok
   </body>
 </html>

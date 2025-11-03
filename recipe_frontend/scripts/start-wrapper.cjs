@@ -55,6 +55,7 @@ function run(cmd, args) {
   }
 
   // Local dev or explicit override (non-CI)
+  console.log('[recipe_frontend] Starting webpack dev server (non-CI or FORCE_DEV=true). To reduce memory usage in CI, prefer `npm run start:serve`.');
   process.env.BROWSER = 'none';
   process.env.HOST = process.env.HOST || '0.0.0.0';
   const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
@@ -63,6 +64,10 @@ function run(cmd, args) {
   // Keep dev memory moderate; can be overridden by env
   if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
     process.env.NODE_OPTIONS = '--max-old-space-size=384';
+  }
+  // Default disable sourcemaps unless explicitly enabled to save memory
+  if (!/^true$/i.test(String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || ''))) {
+    process.env.GENERATE_SOURCEMAP = 'false';
   }
 
   // Start CRA dev server with react-app-rewired
