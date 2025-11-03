@@ -1,12 +1,12 @@
 # recipe-explorer-38066-38098
 
-This workspace contains the Recipe Explorer frontend container.
+CI tip: For the frontend container, use `npm run start:serve` (static build + serve) to minimize memory and avoid orchestrator timeouts or SIGKILL (137). `start:ci` and `start:lowmem` are available if you specifically need the webpack dev server.
 
-CI tip: Use `npm run start:serve` inside recipe_frontend to minimize memory and avoid orchestrator timeouts or SIGKILL (137). If you specifically need the webpack dev server, use `start:ci` or `start:lowmem`.
+Recommended commands:
+- npm run start:serve  -> low-memory production build + static serve on ${REACT_APP_PORT:-3000}
+- npm run start:ci     -> CRA dev server with capped memory (NODE_OPTIONS) and no browser auto-open
+- npm run start:lowmem -> CRA dev server with stricter 256MB memory cap for very constrained environments
 
-Quick start:
-- cd recipe_frontend
-- npm ci
-- npm run start:serve
+Assets: design assets are copied into recipe_frontend/public/assets so JSX references like `/assets/figma_image_*.png` resolve under both dev and static serve.
 
-See recipe_frontend/README.md for full details and environment variables.
+Note: The dev server logs may show webpack-dev-server deprecation warnings. These are upstream and safe; prefer `start:serve` in CI to avoid long-running watch processes that can be terminated (exit code 137).
