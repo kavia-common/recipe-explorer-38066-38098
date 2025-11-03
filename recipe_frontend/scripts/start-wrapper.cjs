@@ -36,6 +36,7 @@ function run(cmd, args) {
     console.log('[recipe_frontend] Redirecting `npm start` to `npm run start:serve` (static build + serve).');
     console.log('[recipe_frontend] Use `npm run start:serve` directly in CI or `npm run start:serve:prebuilt` if artifacts exist.');
     console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and run `npm run start:ci`.');
+    // Enforce headless, CI, low-memory defaults
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
@@ -44,8 +45,9 @@ function run(cmd, args) {
     process.env.PORT = port;
     const sm = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || '').toLowerCase() === 'true' ? 'true' : 'false';
     process.env.GENERATE_SOURCEMAP = sm;
+    // Cap memory harder to avoid 137 in very constrained CI
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
-      process.env.NODE_OPTIONS = '--max-old-space-size=192';
+      process.env.NODE_OPTIONS = '--max-old-space-size=160';
     }
     return run(npmCmd, ['run', 'start:serve']);
   }
