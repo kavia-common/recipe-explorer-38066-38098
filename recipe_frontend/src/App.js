@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import SignIn11235 from './SignIn11235';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -16,33 +17,30 @@ function App() {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
-  return (
+  const Home = () => (
     <div className="App">
       <header className="App-header">
-        <button 
-          className="theme-toggle" 
+        <button
+          className="theme-toggle"
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Recipe Explorer</h1>
+        <p>Welcome to the app. Use the link below to view the Sign In screen.</p>
+        <Link className="App-link" to="/sign-in">Go to Sign In</Link>
       </header>
     </div>
+  );
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn11235 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
