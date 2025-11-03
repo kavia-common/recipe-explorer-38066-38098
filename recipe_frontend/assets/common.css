@@ -1,0 +1,251 @@
+:root {
+  /* Colors (from design_system.colors) - expose as tokens */
+  --color-colour-styles-neutral-colour-white: ;
+  --color-colour-styles-primary-colour-primary-100: ;
+  --color-colour-styles-neutral-colour-black: ;
+  --color-colour-styles-label-colour: ;
+  --color-colour-styles-secondary-colour-secondary-100: ;
+  --color-google-icon: ;
+  --color-facebook-icon: ;
+  --color-colour-styles-neutral-colour-gray-4: ;
+  --color-colour-styles-neutral-colour-gray-1: ;
+  --color-white-0: ;
+  --color-neutral-90: ;
+  --color-colour-styles-neutral-colour-gray-3: ;
+  --color-colour-styles-secondary-colour-secondary-80: ;
+  --color-colour-styles-secondary-colour-secondary-40: ;
+  --color-colour-styles-primary-colour-primary-80: ;
+  --color-neutral-30: ;
+  --color-colour-styles-rating: ;
+  --color-colour-styles-secondary-colour-secondary-20: ;
+  --color-colour-styles-primary-colour-primary-40: ;
+  --color-neutral-100: ;
+  --color-colour-styles-neutral-colour-gray-2: ;
+  --color-food-recipe-dark-grey: ;
+  --color-white: ;
+  --color-black: ;
+  --color-colour-styles-success-sucess-light: ;
+  --color-colour-styles-success-sucess: ;
+  --color-colour-styles-warning-light: ;
+  --color-colour-styles-warning: ;
+  --color-colour-styles-secondary-colour-secondary-60: ;
+  --color-colour-styles-primary-colour-primary-20: ;
+  --color-colour-styles-primary-colour-primary-60: ;
+  --color-gray-light: ;
+  --color-basic-white: ;
+  --color-color-grey-3: ;
+
+  /* Explicit hex color tokens (from YAML palette and Ocean Professional hints) */
+  --color-ffffff: #ffffff;
+  --color-292929: #292929;
+  --color-000000: #000000;
+  --color-e9fffa: #e9fffa;
+  --color-979797: #979797;
+  --color-fff2af: #fff2af;
+  --color-129575: #129575;
+  --color-dadada: #dadada;
+  --color-4cd964: #4cd964;
+  --color-121212: #121212;
+  --color-ff9c00: #ff9c00;
+  --color-ffc107: #ffc107;
+  --color-ff3d00: #ff3d00;
+  --color-4caf50: #4caf50;
+  --color-1976d2: #1976d2;
+  --color-035b81: #035b81;
+  --color-d9d9d9: #d9d9d9;
+  --color-484848: #484848;
+  --color-303030: #303030;
+  --color-a9a9a9: #a9a9a9;
+  --color-ffa61a: #ffa61a;
+  --color-ffce80: #ffce80;
+  --color-71b1a1: #71b1a1;
+  --color-130f26: #130f26;
+  --color-c1c1c1: #c1c1c1;
+  --color-ffe1b3: #ffe1b3;
+  --color-ffad30: #ffad30;
+  --color-dbeb e7: #dbebe7;
+  --color-898989: #898989;
+  --color-292d32: #292d32;
+  --color-181818: #181818;
+  --color-c4c4c4: #c4c4c4;
+  --color-797979: #797979;
+  --color-808a96: #808a96;
+  --color-ceecd7: #ceecd7;
+  --color-31b057: #31b057;
+  --color-ffe1e7: #ffe1e7;
+  --color-fd3654: #fd3654;
+  --color-ffba4d: #ffba4d;
+  --color-d8d8d8: #d8d8d8;
+  --color-f6faf9: #f6faf9;
+  --color-afd3ca: #afd3ca;
+  --color-f4f4f4: #f4f4f4;
+  --color-9747ff: #9747ff;
+  --color-828282: #828282;
+
+  /* Ocean Professional theme tokens */
+  --ocean-primary: #2563EB;
+  --ocean-secondary: #F59E0B;
+  --ocean-surface: #ffffff;
+  --ocean-text: #111827;
+  --ocean-background: #f9fafb;
+
+  /* Typography variables (subset used on this screen and base set) */
+  --typo-60-family: 'Poppins', sans-serif;
+  --typo-60-size: 30px;
+  --typo-60-weight: 600;
+  --typo-60-line-height: 45px;
+  --typo-60-letter-spacing: 0;
+  --typo-60-text-align: left;
+  --typo-60-color: var(--color-000000);
+
+  --typo-61-family: 'Poppins', sans-serif;
+  --typo-61-size: 20px;
+  --typo-61-weight: 400;
+  --typo-61-line-height: 30px;
+  --typo-61-letter-spacing: 0;
+  --typo-61-text-align: left;
+  --typo-61-color: var(--color-121212);
+
+  --typo-62-family: 'Poppins', sans-serif;
+  --typo-62-size: 11px;
+  --typo-62-weight: 400;
+  --typo-62-line-height: 16.5px;
+  --typo-62-letter-spacing: 0;
+  --typo-62-text-align: center;
+  --typo-62-color: var(--color-ff9c00);
+
+  --typo-63-family: 'Poppins', sans-serif;
+  --typo-63-size: 11px;
+  --typo-63-weight: 500;
+  --typo-63-line-height: 16.5px;
+  --typo-63-letter-spacing: 0;
+  --typo-63-text-align: left;
+  --typo-63-color: var(--color-000000);
+
+  --typo-64-family: 'Poppins', sans-serif;
+  --typo-64-size: 11px;
+  --typo-64-weight: 500;
+  --typo-64-line-height: 16.5px;
+  --typo-64-letter-spacing: 0;
+  --typo-64-text-align: left;
+  --typo-64-color: var(--color-d9d9d9);
+
+  --typo-65-family: 'Poppins', sans-serif;
+  --typo-65-size: 11px;
+  --typo-65-weight: 400;
+  --typo-65-line-height: 16.5px;
+  --typo-65-letter-spacing: 0;
+  --typo-65-text-align: left;
+  --typo-65-color: var(--color-d9d9d9);
+
+  --typo-66-family: 'Poppins', sans-serif;
+  --typo-66-size: 14px;
+  --typo-66-weight: 400;
+  --typo-66-line-height: 21px;
+  --typo-66-letter-spacing: 0;
+  --typo-66-text-align: left;
+  --typo-66-color: var(--color-121212);
+
+  --typo-67-family: 'SF Pro Display', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --typo-67-size: 15px;
+  --typo-67-weight: 500;
+  --typo-67-line-height: 17.900390625px;
+  --typo-67-letter-spacing: -0.16500000655651093px;
+  --typo-67-text-align: left;
+  --typo-67-color: var(--color-303030);
+
+  --typo-58-family: 'Poppins', sans-serif;
+  --typo-58-size: 16px;
+  --typo-58-weight: 600;
+  --typo-58-line-height: 24px;
+  --typo-58-letter-spacing: 0;
+  --typo-58-text-align: center;
+  --typo-58-color: var(--color-ffffff);
+
+  /* Styles (background, border, radius, opacity) used by elements on this screen */
+  /* style_10: background white, radius 30 (applies to root frame) */
+  --style-10-background: var(--color-ffffff);
+  --style-10-border-radius: 30px;
+
+  /* style_3: background black */
+  --style-3-background: var(--color-000000);
+
+  /* style_18: background #121212 */
+  --style-18-background: var(--color-121212);
+
+  /* style_19: background #ff9c00 */
+  --style-19-background: var(--color-ff9c00);
+
+  /* style_21-24 colors for Google icon segments */
+  --style-21-background: var(--color-ffc107);
+  --style-22-background: var(--color-ff3d00);
+  --style-23-background: var(--color-4caf50);
+  --style-24-background: var(--color-1976d2);
+
+  /* style_30: input rect border gray, width 1.5, radius 10 */
+  --style-30-border-color: var(--color-d9d9d9);
+  --style-30-border-width: 1.5px;
+  --style-30-border-radius: 10px;
+  --style-30-background: transparent;
+
+  /* style_11: big button primary background and radius 10 */
+  --style-11-background: var(--color-129575);
+  --style-11-border-radius: 10px;
+
+  /* style_12: transparent (opacity 0) */
+  --style-12-opacity: 0;
+
+  /* style_28: line - background and border color d9d9d9 with width 1 */
+  --style-28-background: var(--color-d9d9d9);
+  --style-28-border-color: var(--color-d9d9d9);
+  --style-28-border-width: 1px;
+
+  /* style_32: dark home indicator bar */
+  --style-32-background: var(--color-121212);
+  --style-32-border-radius: 100px;
+
+  /* style_33, 34, 35, 16 for status bar assets */
+  --style-33-background: var(--color-303030);
+  --style-33-opacity: 0.4;
+  --style-34-background: var(--color-303030);
+  --style-34-border-color: var(--color-4cd964);
+  --style-34-border-width: 0;
+  --style-16-background: var(--color-000000);
+  --style-16-border-radius: 1.2px;
+  --style-35-background: var(--color-303030);
+
+  /* style-126: white bg radius 10 with shadow_3 */
+  --style-126-background: var(--color-ffffff);
+  --style-126-border-radius: 10px;
+  --shadow-3: 0 0 20px 0 rgba(0,0,0,0.1);
+
+  /* Spacing scale (common approximations) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* Global resets and helpers */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ocean-background); }
+img { display: block; }
+
+/* Utility to apply typography tokens */
+.typo-60 { font-family: var(--typo-60-family); font-size: var(--typo-60-size); font-weight: var(--typo-60-weight); line-height: var(--typo-60-line-height); letter-spacing: var(--typo-60-letter-spacing); color: var(--typo-60-color); text-align: var(--typo-60-text-align); }
+.typo-61 { font-family: var(--typo-61-family); font-size: var(--typo-61-size); font-weight: var(--typo-61-weight); line-height: var(--typo-61-line-height); letter-spacing: var(--typo-61-letter-spacing); color: var(--typo-61-color); text-align: var(--typo-61-text-align); }
+.typo-62 { font-family: var(--typo-62-family); font-size: var(--typo-62-size); font-weight: var(--typo-62-weight); line-height: var(--typo-62-line-height); letter-spacing: var(--typo-62-letter-spacing); color: var(--typo-62-color); text-align: var(--typo-62-text-align); }
+.typo-63 { font-family: var(--typo-63-family); font-size: var(--typo-63-size); font-weight: var(--typo-63-weight); line-height: var(--typo-63-line-height); letter-spacing: var(--typo-63-letter-spacing); color: var(--typo-63-color); text-align: var(--typo-63-text-align); }
+.typo-64 { font-family: var(--typo-64-family); font-size: var(--typo-64-size); font-weight: var(--typo-64-weight); line-height: var(--typo-64-line-height); letter-spacing: var(--typo-64-letter-spacing); color: var(--typo-64-color); text-align: var(--typo-64-text-align); }
+.typo-65 { font-family: var(--typo-65-family); font-size: var(--typo-65-size); font-weight: var(--typo-65-weight); line-height: var(--typo-65-line-height); letter-spacing: var(--typo-65-letter-spacing); color: var(--typo-65-color); text-align: var(--typo-65-text-align); }
+.typo-66 { font-family: var(--typo-66-family); font-size: var(--typo-66-size); font-weight: var(--typo-66-weight); line-height: var(--typo-66-line-height); letter-spacing: var(--typo-66-letter-spacing); color: var(--typo-66-color); text-align: var(--typo-66-text-align); }
+.typo-67 { font-family: var(--typo-67-family); font-size: var(--typo-67-size); font-weight: var(--typo-67-weight); line-height: var(--typo-67-line-height); letter-spacing: var(--typo-67-letter-spacing); color: var(--typo-67-color); text-align: var(--typo-67-text-align); }
+.typo-58 { font-family: var(--typo-58-family); font-size: var(--typo-58-size); font-weight: var(--typo-58-weight); line-height: var(--typo-58-line-height); letter-spacing: var(--typo-58-letter-spacing); color: var(--typo-58-color); text-align: var(--typo-58-text-align); }
+
+/* Shadows */
+.shadow-3 { box-shadow: var(--shadow-3); }
+
+/* Convenience classes for common styles */
+.style-11 { background: var(--style-11-background); border-radius: var(--style-11-border-radius); }
+.style-30 { background: var(--style-30-background); border: var(--style-30-border-width) solid var(--style-30-border-color); border-radius: var(--style-30-border-radius); }
