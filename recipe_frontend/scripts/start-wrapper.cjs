@@ -52,6 +52,10 @@ function run(cmd, args) {
       // ensure cap isn't too high
       process.env.NODE_OPTIONS = process.env.NODE_OPTIONS.replace(/--max-old-space-size=\d+/g, '--max-old-space-size=128');
     }
+    // Ensure no dev-server accidental opts are set in CI path
+    process.env.BROWSER = 'none';
+    process.env.GENERATE_SOURCEMAP = sm;
+    process.env.FORCE_DEV = '';
     // Ensure healthcheck path default
     process.env.REACT_APP_HEALTHCHECK_PATH = process.env.REACT_APP_HEALTHCHECK_PATH || '/health.html';
     return run(npmCmd, ['run', 'start:serve']);

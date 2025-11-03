@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
     <meta charset="utf-8" />
-    <meta name="x-healthcheck" content="ok" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- PUBLIC_INTERFACE: Healthcheck meta for CI readiness probes -->
+    <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Recipe Explorer - a modern, lightweight recipe browsing app."
+    />
     <title>Recipe Explorer</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- CRA injects scripts -->
   </body>
 </html>

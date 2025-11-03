@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Health</title>
+    <!-- PUBLIC_INTERFACE: Healthcheck meta for CI readiness probes -->
     <meta name="x-healthcheck" content="ok" />
-    <title>health</title>
-    <style>
-      html, body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif; }
-      .ok { padding: 16px; color: #065f46; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; margin: 16px; }
-      .muted { color: #6b7280; font-size: 12px; }
-    </style>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0" />
   </head>
   <body>
-    <div class="ok">
-      <strong>OK</strong> <span class="muted">(static health endpoint)</span>
-    </div>
+    ok
   </body>
 </html>
