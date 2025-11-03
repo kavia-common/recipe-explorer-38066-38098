@@ -3,6 +3,8 @@
 
 - Default recommendation (avoids exit code 137 in CI): 
   npm run start:serve
+  # explicit CI alias (sets CI=true):
+  npm run start:serve:ci
 
 - Healthcheck after startup:
   npm run healthcheck
