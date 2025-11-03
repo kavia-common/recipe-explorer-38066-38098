@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <title>Health</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE: Static health marker for CI readiness checks -->
+    <!-- Static health marker; matches what healthcheck script looks for -->
     <meta name="x-healthcheck" content="ok" />
     <style>
-      html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-      .ok { padding: 12px 16px; color: #065f46; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; margin: 16px; }
-      .muted { color: #6b7280; font-size: 12px; margin-top: 8px; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 32px; color: #111827; }
+      .ok { display: inline-block; padding: 8px 12px; border-radius: 8px; background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
     </style>
   </head>
   <body>
-    <div class="ok">
-      <strong>OK</strong> — recipe_frontend static health page
-      <div class="muted">Contains meta[name="x-healthcheck"][content="ok"] for automated checks.</div>
-    </div>
+    <div class="ok" role="status" aria-live="polite">ok</div>
   </body>
 </html>

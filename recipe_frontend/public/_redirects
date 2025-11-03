@@ -1,3 +1,2 @@
-# PUBLIC_INTERFACE
-# Netlify/serve-compatible SPA rewrites: send all non-file paths to index.html
-/*    /index.html   200
+# Redirect all routes to index.html for SPA behavior
+/*   /index.html   200

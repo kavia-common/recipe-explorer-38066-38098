@@ -1,4 +1,4 @@
-# PUBLIC_INTERFACE
-# Basic robots rules for CI/test deployments
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+Sitemap: /sitemap.xml
