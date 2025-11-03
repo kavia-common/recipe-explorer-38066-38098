@@ -32,8 +32,9 @@ function run(cmd, args) {
 
   if (isCI() && !FORCE_DEV) {
     console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137).');
+    console.log('[recipe_frontend] Action: redirecting npm start to `npm run start:serve` (static build + serve) for CI stability.');
     console.log('[recipe_frontend] Tip: Prefer `npm run start:serve` (or :prebuilt) and verify with `npm run healthcheck`.');
-    console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and use npm run start:ci.');
+    console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and use `npm run start:ci`.');
     // Ensure minimal memory usage and deterministic port/host
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
