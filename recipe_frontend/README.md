@@ -30,7 +30,7 @@ Starts the CRA dev server in CI-friendly mode:
 
 ### `npm run start:serve` (Recommended for CI)
 Builds the app with low memory settings and serves static files via `serve`.  
-This mode is non-watching, low-memory, and stable under CI orchestrators:
+This mode is non-watching, low-memory, and stable under CI orchestrators (prevents exit code 137 kills from long-running watch):
 ```bash
 npm run start:serve
 ```

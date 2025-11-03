@@ -1,6 +1,6 @@
 # CI Quick Start (recipe_frontend)
 
-- Preferred in CI to avoid exit code 137:
+- Preferred in CI to avoid exit code 137 (watch server killed by orchestrator):
   npm run start:serve
 
 - Validate readiness:

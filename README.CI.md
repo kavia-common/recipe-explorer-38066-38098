@@ -1,6 +1,6 @@
 # CI Usage Notes for Recipe Explorer Frontend
 
-- Prefer low-memory static serve to avoid exit code 137:
+- Prefer low-memory static serve to avoid exit code 137 (dev-server SIGKILL):
   npm --prefix recipe_frontend run start:serve
 
 - Healthcheck after startup:

@@ -22,7 +22,8 @@
     "healthcheck": "node -e \"const http=require('http');const port=process.env.REACT_APP_PORT||process.env.PORT||3000;const path=(process.env.REACT_APP_HEALTHCHECK_PATH)||'/';http.get('http://127.0.0.1:'+port+path,res=>{console.log('health',res.statusCode);process.exit(res.statusCode===200?0:1)}).on('error',e=>{console.error(e.message);process.exit(1)})\"",
     "test": "cross-env CI=true react-scripts test --watchAll=false --passWithNoTests",
     "postinstall": "npx -y update-browserslist-db@latest || true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prestart": "echo \"INFO: In CI, prefer 'npm run start:serve' to avoid exit code 137 (watch server).\""
   },
   "eslintConfig": {
     "extends": "react-app"
