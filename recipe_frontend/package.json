@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.1",
     "react-scripts": "^5.0.1",
-    "serve": "^14.2.3",
-    "cross-env": "^7.0.3"
+    "serve": "^14.2.3"
   },
   "scripts": {
     "start": "node -e \"const {spawnSync}=require('child_process');const isCI=String(process.env.CI||'').toLowerCase()==='true';if(isCI){console.log('[recipe_frontend] CI detected: redirecting to start:serve to avoid exit code 137.');process.exit(123);}const r=spawnSync('npm',['run','_start:dev'],{stdio:'inherit',shell:true});process.exit(r.status||0);\"; rc=$?; if [ \"$rc\" -eq 123 ]; then npm run start:serve; else if [ \"$rc\" -ne 0 ]; then npm run _start:dev; fi; fi",
