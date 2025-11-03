@@ -1,10 +1,9 @@
 # PUBLIC_INTERFACE
-# Public assets for recipe_frontend
+This folder contains static assets for the Recipe Explorer frontend.
 
-This directory contains static assets used by the CI-safe startup path:
+- index.html includes `<meta name="x-healthcheck" content="ok">`
+- health.html is a static health endpoint for CI readiness probes
+- _redirects configures SPA routing under static serving
+- robots.txt is a default robots file
 
-- index.html: Includes `<meta name="x-healthcheck" content="ok">` so probes can validate readiness
-- health.html: Lightweight static health endpoint without booting React (low memory)
-- _redirects: SPA redirect rule to ensure deep links resolve to `index.html` when serving statically
-
-These files allow `npm run start:serve` to start a low-memory static server that avoids dev server SIGKILL (exit code 137) in CI.
+In CI, use `npm run start:serve` and then `npm run healthcheck`.
