@@ -36,11 +36,12 @@ npm run start:serve
 ```
 The static server binds to `REACT_APP_PORT` (default 3000) and `HOST=0.0.0.0`.
 
-### `npm run healthcheck`
-Simple HTTP check for static served app (expects 200 on `REACT_APP_HEALTHCHECK_PATH` (default `/`)):
+### Healthcheck in CI
+After `start:serve`, you can verify readiness:
 ```bash
 npm run healthcheck
 ```
+This expects HTTP 200 on `http://localhost:${REACT_APP_PORT:-3000}${REACT_APP_HEALTHCHECK_PATH:-/}`.
 
 ### `npm test`
 Launches the test runner in non-watch mode by default via project script, with `CI=true` and `--passWithNoTests` to avoid long watches or failures when no tests are present.
@@ -64,23 +65,11 @@ Configure via `.env` (see `.env.example`), do not hardcode:
 Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected in your environment before enabling.
 
 ## Deprecation and Browserslist Notes
-- Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware` / `onBeforeSetupMiddleware`) are upstream in CRA/webpack-dev-server and safe. They do not affect builds. CI path (`start:serve`) avoids running the dev server.
+- Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware` / `onBeforeSetupMiddleware`) are upstream in CRA/webpack-dev-server and safe. They do not affect builds. Prefer `start:serve` in CI to avoid long-running watch processes.
 - Browserslist database: `postinstall` runs `npx update-browserslist-db@latest` to keep it fresh and quiet warnings.
 
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`.
-
-### Components
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Sign In Screen
+The integrated Sign In screen is available at `/sign-in` (component `SignIn11235.jsx`) and uses pixel-accurate CSS under `public/assets/*`.
 
 ## Learn More
 To learn React, check out the [React documentation](https://reactjs.org/).
