@@ -45,7 +45,7 @@
     "test": "cross-env CI=true react-scripts test --watchAll=false --passWithNoTests",
     "postinstall": "echo \"[recipe_frontend] Postinstall: updating browserslist DB (non-blocking)\" && (npx -y update-browserslist-db@latest || true)",
     "eject": "react-scripts eject",
-    "prestart": "echo \"[recipe_frontend] CI-safe: use 'npm run start:serve' (static build + serve) to avoid exit code 137. In CI, 'npm start' auto-redirects to start:serve (or invoke 'npm --prefix recipe_frontend run start:serve').\""
+    "prestart": "echo \"[recipe_frontend] CI-safe: use 'npm run start:serve' (static build + serve) to avoid exit code 137. In CI, 'npm start' auto-redirects to start:serve (or invoke 'npm --prefix recipe_frontend run start:serve'). Healthcheck: 'npm --prefix recipe_frontend run healthcheck'.\""
   },
   "eslintConfig": {
     "extends": "react-app"
