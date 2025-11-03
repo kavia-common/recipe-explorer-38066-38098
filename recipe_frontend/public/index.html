@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE: Healthcheck meta to allow fast readiness checks without heavy runtime -->
-    <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Recipe Explorer Frontend" />
+    <!-- PUBLIC_INTERFACE: Health meta for CI checks when probing '/' -->
+    <meta name="x-healthcheck" content="ok" />
+    <meta
+      name="description"
+      content="Recipe Explorer - modern React SPA"
+    />
     <title>Recipe Explorer</title>
   </head>
   <body>

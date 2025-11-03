@@ -1,9 +1,9 @@
-# Public Assets
+# Public Assets (Static Serve)
 
-This directory holds static files served by the app in both dev and static-serve modes.
+This folder contains runtime assets for the static server:
 
-- health.html: Lightweight health endpoint that does not require React to boot.
-- _redirects: SPA rewrite hints to ensure deep links resolve to index.html when using static hosting.
-- index.html: CRA entry template (includes the x-healthcheck meta).
+- health.html: a minimal page with `<meta name="x-healthcheck" content="ok">` allowing CI to probe readiness without booting React.
+- _redirects: SPA redirects to ensure any deep link resolves to `/index.html`.
+- index.html: CRA entry HTML including the same health meta.
 
-Assets are copied into public/assets at build via `scripts/copy-assets-to-public.js`. Reference assets using absolute paths like `/assets/...`.
+During build, the `prebuild` script copies design assets into `public/assets` so the app can reference them at `/assets/...`.

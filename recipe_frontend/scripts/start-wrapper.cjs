@@ -24,7 +24,7 @@ function run(cmd, args) {
   const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
 
   if (isCI() && !FORCE_DEV) {
-    console.log('[recipe_frontend] CI detected -> redirecting to static build+serve (no watcher) to avoid SIGKILL/137. Use `npm run start:ci` only if hot reload is required.');
+    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137). For hot reload in CI use `npm run start:ci` or `npm run start:lowmem` explicitly.');
     // Ensure minimal memory usage and deterministic port/host
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
