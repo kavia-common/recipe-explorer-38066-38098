@@ -4,13 +4,12 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Healthcheck meta. This allows CI to verify readiness without booting React. -->
     <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Recipe Explorer Frontend"
-    />
+    <meta name="description" content="Recipe Explorer Frontend" />
     <title>Recipe Explorer</title>
+    <!-- Assets are copied to /assets by prebuild script -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -1,2 +1,6 @@
-# Redirect all routes to index.html for SPA behavior
-/*    /index.html   200
+# PUBLIC_INTERFACE
+# For static serve and Netlify-like behavior: redirect all to index.html (SPA)
+# Allows deep links like /sign-in to load the SPA entry.
+# This file is also honored by `serve` with --single flag in our scripts.
+# path    target      status
+/*        /index.html 200
