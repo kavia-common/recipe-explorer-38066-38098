@@ -17,13 +17,16 @@ In the project directory, you can run:
 Runs the app in development mode (hot-reload).  
 Open http://localhost:3000 to view it in your browser.
 
-> CI/non-interactive environments: prefer `npm run start:ci` or build-and-serve (below) to avoid long-running dev server being terminated by the orchestrator.
+> CI/non-interactive environments: prefer `npm run start:serve` (build and static serve) or `npm run start:ci` to avoid the orchestrator killing a long-running, higher-memory dev server with watch mode. `start:serve` is most memory-efficient.
 
 ### `npm run start:ci`
 Starts the CRA dev server in CI-friendly mode:
 - Disables opening a browser (`BROWSER=none`)
 - Sets `CI=true`
+- Binds to all interfaces by default (`HOST=0.0.0.0`, overridable)
+- Uses `REACT_APP_PORT` for the port if set
 - Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, can be toggled via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
+- Tip: In constrained CI, prefer `npm run start:serve` which builds then serves static files (lower memory).
 
 ### `npm test`
 Launches the test runner in non-watch mode by default via project script.
