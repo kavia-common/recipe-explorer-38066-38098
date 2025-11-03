@@ -33,7 +33,7 @@ function run(cmd, args) {
   // If CI detected and not forcing dev, always redirect to static serve
   if (isCI() && !FORCE_DEV) {
     console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137).');
-    console.log('[recipe_frontend] Redirecting `npm start` to `npm run start:serve` (static build + serve).');
+    console.log('[recipe_frontend] Redirecting `npm start` to `npm run start:serve` (static build + serve). In CI, always prefer: npm --prefix recipe_frontend run start:serve');
     console.log('[recipe_frontend] Use `npm run start:serve` directly in CI or `npm run start:serve:prebuilt` if artifacts exist.');
     console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and run `npm run start:ci`.');
     // Enforce headless, CI, low-memory defaults
