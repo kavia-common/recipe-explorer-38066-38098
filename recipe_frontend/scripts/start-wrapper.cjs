@@ -24,13 +24,14 @@ function run(cmd, args) {
   const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
 
   if (isCI() && !FORCE_DEV) {
-    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137). For hot reload in CI use `npm run start:ci` or `npm run start:lowmem` explicitly.');
+    console.log('[recipe_frontend] CI detected -> using static build+serve to avoid watcher SIGKILL (exit 137). For hot reload in CI use `npm run start:ci` or `npm run start:lowmem` explicitly. Set FORCE_DEV=true to override.');
     // Ensure minimal memory usage and deterministic port/host
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
     process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
     process.env.PORT = process.env.REACT_APP_PORT;
+    // Default disable sourcemaps in CI unless explicitly enabled
     process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
     process.env.NODE_OPTIONS = '--max-old-space-size=256';
 
