@@ -20,4 +20,4 @@ Notes:
 - A static /health.html is served without booting React to reduce memory during readiness checks. The healthcheck script first probes this path.
 - SPA redirects for static serving are configured via public/_redirects (present by default) so deep links resolve to index.html.
 - Webpack dev server deprecation warnings (onBeforeSetupMiddleware/onAfterSetupMiddleware) are upstream and safe. Prefer static serve in CI to avoid noisy warnings and watcher processes.
-
+- Ensure `public/index.html`, `public/health.html`, and `public/_redirects` exist (they are provided in the repo). These enable low-memory static serving and reliable readiness probes.

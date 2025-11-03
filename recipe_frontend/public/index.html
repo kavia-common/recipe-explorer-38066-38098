@@ -4,17 +4,18 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE: Healthcheck meta (runtime also injects one in src/index.js) -->
+    <!-- PUBLIC_INTERFACE: Health meta for CI readiness checks -->
     <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Recipe Explorer frontend"
+      content="Recipe Explorer - lightweight React app"
     />
     <title>Recipe Explorer</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- CRA will inject bundle -->
   </body>
 </html>

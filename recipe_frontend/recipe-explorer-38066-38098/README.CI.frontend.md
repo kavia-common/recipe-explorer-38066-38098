@@ -12,5 +12,5 @@ To avoid exit code 137 (watch server killed), use static serve:
 
 Notes:
 - Static assets and SPA redirects exist under recipe_frontend/public (health.html, _redirects, index.html with meta).
-- A prebuilt public/health.html includes the required meta so readiness checks don't need React to boot.
 - `npm start` auto-redirects to `start:serve` when CI=true.
+- If your orchestrator supplies a PORT, the scripts propagate it automatically. You can also set REACT_APP_PORT explicitly for clarity.
