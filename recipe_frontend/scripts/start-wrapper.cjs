@@ -33,7 +33,7 @@ function run(cmd, args) {
   // If CI detected and not forcing dev, always redirect to static serve
   if (isCI() && !FORCE_DEV) {
     console.log('[recipe_frontend] CI detected -> static build+serve (prevents watcher SIGKILL 137).');
-    console.log('[recipe_frontend] Redirecting `npm start` -> `npm run start:serve`.');
+    console.log('[recipe_frontend] Redirecting `npm start` -> `npm run start:serve` (non-watching, low memory).');
     // Enforce headless, CI, low-memory defaults
     process.env.BROWSER = 'none';
     process.env.CI = 'true';

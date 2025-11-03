@@ -1,3 +1,6 @@
 # PUBLIC_INTERFACE
-# Ensure SPA routes resolve to index.html when statically served
-/* /index.html 200
+# SPA routing for static hosting (e.g., serve, Netlify format)
+# Redirect all routes to index.html so React Router can handle them.
+# For 'serve' this file is not strictly required but included for portability.
+# Note: 'serve --single' already does similar; keeping for completeness.
+/*    /index.html   200
