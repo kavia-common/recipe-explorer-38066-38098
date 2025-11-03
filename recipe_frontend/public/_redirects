@@ -1,2 +1,3 @@
 # PUBLIC_INTERFACE
-/* /index.html 200
+# Netlify/serve-style SPA redirects: send all paths to index.html
+/*    /index.html   200

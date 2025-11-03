@@ -1,16 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <!-- PUBLIC_INTERFACE -->
+    <!-- Lightweight healthcheck endpoint for CI readiness probes -->
     <meta charset="utf-8" />
-    <title>Health</title>
     <meta name="x-healthcheck" content="ok" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OK</title>
     <style>
-      html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-      .ok{display:flex;align-items:center;justify-content:center;min-height:100vh;color:#16a34a}
+      html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:#111}
+      .ok{padding:16px}
+      .muted{color:#6b7280;font-size:12px}
     </style>
   </head>
   <body>
-    <div class="ok">ok</div>
+    <div class="ok">
+      <h1>OK</h1>
+      <p class="muted">Static health page is available. Meta x-healthcheck=ok present.</p>
+    </div>
   </body>
 </html>
