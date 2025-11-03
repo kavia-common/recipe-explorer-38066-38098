@@ -19,6 +19,13 @@ Open http://localhost:3000 to view it in your browser.
 
 > IMPORTANT (CI): Prefer `npm run start:serve` for CI/non-interactive runs. This avoids orchestrator SIGKILL (137) by using a low-memory static serve. If hot reload is required, use `npm run start:ci` or `npm run start:lowmem` (caps memory and disables browser auto-open). Ensure `.env` exists (see `.env.example`) and `REACT_APP_PORT` is set if your environment mandates a specific port.
 
+### Assets and Static Paths
+This app references design assets with absolute paths like `/assets/...`. During build, a prebuild step copies assets into `public/assets`:
+- From `recipe_frontend/assets/*`
+- From repository root `assets/*` (including `assets/figmaimages`)
+
+If you add new assets, place them in either location; they will be available at runtime under `/assets/*`.
+
 ### `npm run start:ci`
 Starts the CRA dev server in CI-friendly mode:
 - Disables opening a browser (`BROWSER=none`)

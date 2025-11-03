@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In - 11-235</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="./sign-in-11-235.css">
+</head>
+<body>
+  <!-- Screen container from root frame -->
+  <div id="screen-sign-in-11-235" class="screen-root" role="main" aria-label="Sign In Screen">
+    <!-- Status Bar (component) -->
+    <div class="status-bar" aria-hidden="true">
+      <div class="status-right-symbols">
+        <div class="battery" role="img" aria-label="Battery status">
+          <div class="battery-body"></div>
+          <div class="battery-notch"></div>
+          <div class="battery-level" style="width: 18px;"></div>
+        </div>
+        <div class="cellular" role="img" aria-label="Cellular signal">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+          <div class="bar bar4"></div>
+        </div>
+        <div class="wifi" role="img" aria-label="Wi-Fi signal">
+          <div class="wifi-arc arc1"></div>
+          <div class="wifi-arc arc2"></div>
+          <div class="wifi-arc arc3"></div>
+        </div>
+      </div>
+      <div class="status-time typo-67" aria-label="Time">19:27</div>
+    </div>
+
+    <!-- Title group -->
+    <header class="group-title" aria-labelledby="signin-heading">
+      <h1 id="signin-heading" class="title-hello typo-60">Hello,</h1>
+      <p class="title-welcome typo-61">Welcome Back!</p>
+    </header>
+
+    <!-- Email input component -->
+    <form id="sign-in-form" class="sign-in-form" novalidate>
+      <div class="input-field email" role="group" aria-labelledby="email-label">
+        <div class="input-rect style-30"></div>
+        <label id="email-label" class="label typo-66" for="email-input">Email</label>
+        <input id="email-input" name="email" type="email" class="field-input" aria-describedby="email-help" placeholder="Enter Email" autocomplete="email" required />
+        <p id="email-help" class="placeholder typo-65" aria-hidden="true">Enter Email</p>
+      </div>
+
+      <!-- Password input component -->
+      <div class="input-field password" role="group" aria-labelledby="password-label">
+        <div class="input-rect style-30"></div>
+        <label id="password-label" class="label typo-66" for="password-input">Enter Password</label>
+        <input id="password-input" name="password" type="password" class="field-input" aria-describedby="password-help" placeholder="Enter Password" autocomplete="current-password" required />
+        <p id="password-help" class="placeholder typo-65" aria-hidden="true">Enter Password</p>
+      </div>
+
+      <!-- Forgot Password -->
+      <div class="forgot-area">
+        <a href="#" class="forgot-text typo-62" aria-label="Forgot Password">Forgot Password?</a>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="big-button style-11" data-role="sign-in-button" type="submit" aria-label="Sign In">
+        <span class="big-button-label typo-58">Sign In</span>
+        <img class="big-button-icon" src="figmaimages/figma_image_30_811.png" alt="Arrow Right">
+      </button>
+    </form>
+
+    <!-- Divider line with text -->
+    <div class="divider-line" role="separator" aria-label="Or Sign in With">
+      <div class="line-left"></div>
+      <p class="divider-text typo-64">Or Sign in With</p>
+      <div class="line-right"></div>
+    </div>
+
+    <!-- Social buttons -->
+    <div class="social-btn google" role="button" tabindex="0" aria-label="Sign in with Google">
+      <div class="social-bg shadow-3"></div>
+      <!-- Composite vectors/images from figmaimages directory -->
+      <img class="google-vector-1" src="figmaimages/figma_image_22_221.png" alt="Google icon base">
+      <div class="google-seg seg-red" aria-hidden="true"></div>
+      <div class="google-seg seg-green" aria-hidden="true"></div>
+      <img class="google-vector-4" src="figmaimages/figma_image_22_256.png" alt="Google icon overlay">
+    </div>
+
+    <div class="social-btn facebook" role="button" tabindex="0" aria-label="Sign in with Facebook">
+      <div class="social-bg shadow-3"></div>
+      <div class="fb-bg" aria-hidden="true"></div>
+      <img class="fb-mark" src="figmaimages/figma_image_18_436.png" alt="Facebook logo">
+      <div class="fb-overlay" aria-hidden="true"></div>
+    </div>
+
+    <!-- Bottom Home indicator -->
+    <div class="home-indicator" aria-hidden="true">
+      <div class="home-line"></div>
+    </div>
+
+    <!-- Signup link -->
+    <p class="signup-text typo-63">Don’t have an account? <a href="#" class="signup-link" aria-label="Sign up">Sign up</a></p>
+  </div>
+
+  <script src="./app.js"></script>
+  <script src="./sign-in-11-235.js"></script>
+</body>
+</html>

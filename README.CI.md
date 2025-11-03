@@ -11,5 +11,6 @@
   REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:lowmem
 
 Notes:
+- Assets are auto-copied into CRA public/assets during build via prebuild script. Reference them as /assets/... in the app.
 - Webpack dev server deprecation warnings are safe.
 - Browserslist is updated on postinstall; warnings can be ignored in CI.
