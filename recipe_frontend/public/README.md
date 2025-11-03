@@ -1,9 +1,10 @@
-# Public Assets (Static Serve)
+# PUBLIC_INTERFACE
+# Public assets for recipe_frontend
 
-This folder contains runtime assets for the static server:
+This directory contains static assets used by the CI-safe startup path:
 
-- health.html: a minimal page with `<meta name="x-healthcheck" content="ok">` allowing CI to probe readiness without booting React.
-- _redirects: SPA redirects to ensure any deep link resolves to `/index.html`.
-- index.html: CRA entry HTML including the same health meta.
+- index.html: Includes `<meta name="x-healthcheck" content="ok">` so probes can validate readiness
+- health.html: Lightweight static health endpoint without booting React (low memory)
+- _redirects: SPA redirect rule to ensure deep links resolve to `index.html` when serving statically
 
-During build, the `prebuild` script copies design assets into `public/assets` so the app can reference them at `/assets/...`.
+These files allow `npm run start:serve` to start a low-memory static server that avoids dev server SIGKILL (exit code 137) in CI.

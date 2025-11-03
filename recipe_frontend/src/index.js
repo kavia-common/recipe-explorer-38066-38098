@@ -10,6 +10,8 @@ import App from './App';
  * For static serve, we can't add a server route. We expose a meta marker instead.
  * The healthcheck script looks for: <meta name="x-healthcheck" content="ok">
  * A fallback static page also exists at /health.html including the same meta.
+ * Note: public/index.html also includes this meta statically to support cases where
+ * React hasn't booted yet.
  */
 (function injectHealthMeta() {
   try {
