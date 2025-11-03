@@ -14,18 +14,36 @@ This project provides a minimal React template with a clean, modern UI and minim
 In the project directory, you can run:
 
 ### `npm start`
+Runs the app in development mode (hot-reload).  
+Open http://localhost:3000 to view it in your browser.
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> CI/non-interactive environments: prefer `npm run start:ci` or build-and-serve (below) to avoid long-running dev server being terminated by the orchestrator.
+
+### `npm run start:ci`
+Starts the CRA dev server in CI-friendly mode:
+- Disables opening a browser (`BROWSER=none`)
+- Sets `CI=true`
+- Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, can be toggled via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
 
 ### `npm test`
+Launches the test runner in non-watch mode by default via project script.
 
-Launches the test runner in interactive watch mode.
+### `npm run build` and `npm run build:ci`
+Builds the app for production to the `build` folder.  
+The `build:ci` variant disables source maps by default to reduce memory usage.
 
-### `npm run build`
+### `npm run serve`
+Serves the production build statically on the configurable port (default 3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Environment Variables
+The container uses the following variables (configure via .env, do not hardcode):
+- REACT_APP_API_BASE, REACT_APP_BACKEND_URL, REACT_APP_FRONTEND_URL
+- REACT_APP_WS_URL, REACT_APP_NODE_ENV, REACT_APP_NEXT_TELEMETRY_DISABLED
+- REACT_APP_ENABLE_SOURCE_MAPS
+- REACT_APP_PORT, REACT_APP_TRUST_PROXY, REACT_APP_LOG_LEVEL
+- REACT_APP_HEALTHCHECK_PATH, REACT_APP_FEATURE_FLAGS, REACT_APP_EXPERIMENTS_ENABLED
+
+Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected in your environment before enabling.
 
 ## Customization
 
@@ -58,25 +76,19 @@ Common components include:
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
 ### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
 ### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
 ### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
 ### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
