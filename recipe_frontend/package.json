@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "node scripts/start-wrapper.cjs",
+    "start:serve:ci:alias2": "cross-env CI=true npm run start:serve",
     "_start:dev": "cross-env NODE_OPTIONS=--max-old-space-size=384 BROWSER=none react-app-rewired start",
     "start:ci": "cross-env BROWSER=none CI=true HOST=${HOST:-0.0.0.0} REACT_APP_PORT=${REACT_APP_PORT:-${PORT:-3000}} PORT=${REACT_APP_PORT:-${PORT:-3000}} NODE_OPTIONS=--max-old-space-size=320 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-app-rewired start --no-open",
     "start:lowmem": "cross-env BROWSER=none CI=true HOST=${HOST:-0.0.0.0} REACT_APP_PORT=${REACT_APP_PORT:-${PORT:-3000}} PORT=${REACT_APP_PORT:-${PORT:-3000}} NODE_OPTIONS=--max-old-space-size=256 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-app-rewired start --no-open",
