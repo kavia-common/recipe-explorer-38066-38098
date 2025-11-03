@@ -17,7 +17,7 @@ In the project directory, you can run:
 Runs the app in development mode (hot-reload).  
 Open http://localhost:3000 to view it in your browser.
 
-> IMPORTANT (CI): Prefer `npm run start:serve` for CI/non-interactive runs. This avoids orchestrator SIGKILL (137) by using a low-memory static serve. If hot reload is required, use `npm run start:ci` or `npm run start:lowmem` (caps memory and disables browser auto-open). Ensure `.env` exists (see `.env.example`) and `REACT_APP_PORT` is set if your environment mandates a specific port.
+> IMPORTANT (CI): When `CI=true`, `npm start` automatically redirects to `npm run start:serve` to prevent orchestrator SIGKILL (137). For explicit hot reload in CI, use `npm run start:ci` or `npm run start:lowmem`. Ensure `.env` exists (see `.env.example`) and `REACT_APP_PORT` is set if your environment mandates a specific port.
 
 ### Assets and Static Paths
 This app references design assets with absolute paths like `/assets/...`. During build, a prebuild step copies assets into `public/assets`:

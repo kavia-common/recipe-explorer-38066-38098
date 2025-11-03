@@ -11,7 +11,8 @@
     "cross-env": "^7.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node -e \"if(process.env.CI==='true'){console.log('CI detected: redirecting to start:serve to avoid exit code 137.');process.exit(0)}else{require('child_process').spawn('npm',['run','_start:dev'],{stdio:'inherit',shell:true})}\" && npm run start:serve || npm run _start:dev",
+    "_start:dev": "react-scripts start",
     "start:ci": "cross-env BROWSER=none CI=true HOST=0.0.0.0 PORT=${REACT_APP_PORT:-${PORT:-3000}} NODE_OPTIONS=--max-old-space-size=384 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",
     "start:lowmem": "cross-env BROWSER=none CI=true HOST=0.0.0.0 PORT=${REACT_APP_PORT:-${PORT:-3000}} NODE_OPTIONS=--max-old-space-size=256 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",
     "ci:dev": "npm run start:ci",
@@ -25,7 +26,7 @@
     "test": "cross-env CI=true react-scripts test --watchAll=false --passWithNoTests",
     "postinstall": "npx -y update-browserslist-db@latest || true",
     "eject": "react-scripts eject",
-    "prestart": "echo \"INFO: In CI, prefer 'npm run start:serve' to avoid exit code 137 (watch server).\""
+    "prestart": "echo \"INFO: In CI, 'npm run start:serve' is preferred to avoid exit code 137 (watch server). Using start script will auto-redirect when CI=true.\""
   },
   "eslintConfig": {
     "extends": "react-app"

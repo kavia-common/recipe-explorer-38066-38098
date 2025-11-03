@@ -1,18 +1,17 @@
 # CI Usage Notes for Recipe Explorer Frontend
 
-- Prefer low-memory static serve to avoid exit code 137 (watch server can be SIGKILLed):
+- Prefer low-memory static serve to avoid exit code 137 (dev-server SIGKILL):
   npm --prefix recipe_frontend run start:serve
+  (Note: npm start with CI=true auto-redirects to start:serve)
 
 - Healthcheck after startup:
   npm --prefix recipe_frontend run healthcheck
 
-- If you need the dev server (hot reload), use capped-memory variants (ensure port is set):
+- If you need the dev server (hot reload), use capped-memory variants and ensure PORT is propagated:
   REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:ci
   REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:lowmem
 
 Notes:
-- Do NOT use `npm start` in CI; webpack-dev-server watch can be SIGKILLed (exit code 137). Use `start:serve` for stability.
+- Assets are auto-copied into CRA public/assets during build via prebuild script. Reference them as /assets/... in the app.
 - Webpack dev server deprecation warnings are safe.
 - Browserslist is updated on postinstall; warnings can be ignored in CI.
-- Ensure REACT_APP_PORT is set if your orchestrator requires a specific port (default 3000).
-- Copy recipe_frontend/.env.example to recipe_frontend/.env when you need custom env; do not hardcode config in code.

@@ -1,0 +1,2 @@
+This app intentionally does not include a binary favicon here to keep the repository lightweight.
+If your deployment requires a favicon, place favicon.ico in this directory. CRA will serve it at /favicon.ico.

@@ -2,6 +2,7 @@
 
 - Preferred in CI to avoid exit code 137 (watch server killed by orchestrator):
   npm run start:serve
+  (Note: npm start with CI=true auto-redirects to start:serve)
 
 - Validate readiness:
   npm run healthcheck
