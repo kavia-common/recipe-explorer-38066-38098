@@ -55,6 +55,8 @@ function run(cmd, args) {
     if (process.env.FORCE_DEV) {
       console.warn('[recipe_frontend] WARNING: FORCE_DEV is set but ignored because CI-safe static serving is enforced by wrapper.');
     }
+    // Ensure healthcheck path default
+    process.env.REACT_APP_HEALTHCHECK_PATH = process.env.REACT_APP_HEALTHCHECK_PATH || '/health.html';
     return run(npmCmd, ['run', 'start:serve']);
   }
 

@@ -39,6 +39,7 @@
     "start:serve:verify": "npm run start:serve && npm run healthcheck",
     "ci": "npm run start:serve",
     "ci:start": "npm run start:serve",
+    "ci:serve": "npm run start:serve",
     "ci:start:serve": "npm run start:serve",
     "start:serve:ci:alias": "npm run start:serve",
     "healthcheck": "node -e \"const http=require('http');let port=Number(process.env.REACT_APP_PORT||process.env.PORT||3000);if(!Number.isFinite(port)||port<=0)port=3000;const hcPath=(process.env.REACT_APP_HEALTHCHECK_PATH&&process.env.REACT_APP_HEALTHCHECK_PATH.trim())||'/health.html';const idxPath='/';const host='127.0.0.1';function check(path){return new Promise((resolve)=>{const opts={host,port,path,timeout:3000};const req=http.get(opts,res=>{let data='';res.on('data',c=>data+=c);res.on('end',()=>{try{const okMeta=/<meta[^>]*name=\\\"?x-healthcheck\\\"?[^>]*content=\\\"?ok\\\"?[^>]*>/i.test(data||'');const statusOk=res.statusCode===200;console.log(`[healthcheck] url=http://${host}:${port}${path} status=${res.statusCode} meta=${okMeta?'ok':'missing'}`);resolve(statusOk&&okMeta);}catch(e){resolve(false)}});});req.on('timeout',()=>{console.error('[healthcheck] timeout');req.destroy();resolve(false)});req.on('error',e=>{console.error('[healthcheck] error:',e.message);resolve(false)});});} (async()=>{console.log(`[healthcheck] probing port=${port}`);if(await check(hcPath))process.exit(0);if(await check(idxPath))process.exit(0);process.exit(1)})();\"",
