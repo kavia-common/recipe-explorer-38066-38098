@@ -1,3 +1,6 @@
 # PUBLIC_INTERFACE
-# Redirect all routes to index.html for SPA behavior under static serving
-/*    /index.html   200
+# SPA redirects for static hosting (Netlify/serve compatible)
+# Redirect all routes to index.html to allow client-side routing.
+# This is safe for local 'serve -s' and many static hosts.
+# format: <route> <target> [status]
+/* /index.html 200
