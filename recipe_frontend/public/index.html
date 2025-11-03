@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- PUBLIC_INTERFACE -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE: healthcheck meta so / serves as a readiness endpoint -->
-    <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
+    <!-- Health meta so '/' can be probed as fallback -->
+    <meta name="x-healthcheck" content="ok" />
     <meta
       name="description"
-      content="Recipe Explorer Frontend"
+      content="Recipe Explorer - a lightweight React app"
     />
     <title>Recipe Explorer</title>
   </head>

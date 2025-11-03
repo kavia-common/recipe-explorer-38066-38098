@@ -41,9 +41,12 @@ function run(cmd, args) {
     process.env.REACT_APP_PORT = port;
     process.env.PORT = port;
     // Default disable sourcemaps in CI unless explicitly enabled
-    process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
+    // Force false when not 'true' to ensure low memory
+    const sm = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || '').toLowerCase() === 'true' ? 'true' : 'false';
+    process.env.GENERATE_SOURCEMAP = sm;
     // Cap memory lower to further reduce OOM chances (CI often limited)
     if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
+      // Lower memory cap to 192MB in CI to avoid OOM (exit 137)
       process.env.NODE_OPTIONS = '--max-old-space-size=192';
     }
 

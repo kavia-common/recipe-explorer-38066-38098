@@ -1,3 +1,5 @@
 # PUBLIC_INTERFACE
-# Netlify/serve-style SPA redirect rules for static serving
-/*    /index.html   200
+# Redirect all paths to index.html for SPA routing while preserving the path.
+# This file is used by many static hosts and also by 'serve' for SPA behavior.
+# Format: <source> <destination> <status>
+/*   /index.html   200
