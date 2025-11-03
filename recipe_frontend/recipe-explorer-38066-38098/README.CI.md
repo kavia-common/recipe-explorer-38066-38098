@@ -6,9 +6,9 @@
 - Healthcheck after startup:
   npm --prefix recipe_frontend run healthcheck
 
-- If you need the dev server (hot reload), use capped-memory variants:
-  npm --prefix recipe_frontend run start:ci
-  npm --prefix recipe_frontend run start:lowmem
+- If you need the dev server (hot reload), use capped-memory variants (ensure port is set):
+  REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:ci
+  REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:lowmem
 
 Notes:
 - Do NOT use `npm start` in CI; webpack-dev-server watch can be SIGKILLed (exit code 137). Use `start:serve` for stability.

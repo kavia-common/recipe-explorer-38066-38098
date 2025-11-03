@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import SignIn11235 from './SignIn11235';
 
+// CI note: prefer npm run start:serve to avoid exit code 137 from long-running dev server.
+
 // PUBLIC_INTERFACE
 function App() {
   const [theme, setTheme] = useState('light');

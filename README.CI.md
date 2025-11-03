@@ -6,9 +6,9 @@
 - Healthcheck after startup:
   npm --prefix recipe_frontend run healthcheck
 
-- If you need the dev server (hot reload), use capped-memory variants:
-  npm --prefix recipe_frontend run start:ci
-  npm --prefix recipe_frontend run start:lowmem
+- If you need the dev server (hot reload), use capped-memory variants and ensure PORT is propagated:
+  REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:ci
+  REACT_APP_PORT=3000 npm --prefix recipe_frontend run start:lowmem
 
 Notes:
 - Webpack dev server deprecation warnings are safe.

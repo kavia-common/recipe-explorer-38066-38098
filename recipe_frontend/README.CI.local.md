@@ -7,8 +7,8 @@
   npm run healthcheck
 
 - If hot reload is needed (local dev/CI with watch):
-  npm run start:ci     # 384MB cap
-  npm run start:lowmem # 256MB cap
+  REACT_APP_PORT=${REACT_APP_PORT:-3000} npm run start:ci     # 384MB cap
+  REACT_APP_PORT=${REACT_APP_PORT:-3000} npm run start:lowmem # 256MB cap
 
 Notes:
 - Deprecation warnings from webpack-dev-server are harmless; static serve avoids them.
