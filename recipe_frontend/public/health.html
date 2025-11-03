@@ -2,11 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- PUBLIC_INTERFACE: static healthcheck page -->
+    <!-- PUBLIC_INTERFACE: Healthcheck marker -->
     <meta name="x-healthcheck" content="ok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>OK</title>
+    <style>
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif; background: #fff; color: #111; }
+      .ok { padding: 16px; }
+      .ok strong { color: #2563EB; }
+    </style>
   </head>
   <body>
-    OK
+    <div class="ok">Frontend health: <strong>ok</strong></div>
   </body>
 </html>

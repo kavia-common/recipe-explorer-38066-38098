@@ -1,7 +1,8 @@
 # PUBLIC_INTERFACE
-# Public Artifacts
+This directory contains static assets required for CI-safe serving:
+- index.html: includes <meta name="x-healthcheck" content="ok">
+- health.html: static health endpoint returning 200 with the same meta
+- _redirects: SPA redirects for static hosting
+- robots.txt: minimal robots file
 
-- index.html: base document; includes `<meta name="x-healthcheck" content="ok">`
-- health.html: static low-memory readiness endpoint; same health meta as index.html
-- _redirects: SPA redirect rules so deep links resolve to index.html under static serve
-- robots.txt: blocks crawlers in CI by default
+These allow `npm run start:serve` to start quickly with low memory and pass readiness checks via `npm run healthcheck`.

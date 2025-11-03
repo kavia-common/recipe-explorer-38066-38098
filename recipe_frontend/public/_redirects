@@ -1,2 +1,3 @@
 # PUBLIC_INTERFACE
-/* /index.html 200
+# Netlify / serve-compatible SPA redirects
+/*    /index.html   200

@@ -38,6 +38,7 @@ function run(cmd, args) {
     console.log('[recipe_frontend] To force webpack dev server in CI (not recommended), set FORCE_DEV=true and run `npm run start:ci`.');
     // Enforce headless, CI, low-memory defaults
     process.env.BROWSER = 'none';
+    // Force CI=true explicitly to ensure consistent behavior in orchestrators
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
     const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
