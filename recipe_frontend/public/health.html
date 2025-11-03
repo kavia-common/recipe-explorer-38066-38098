@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Health</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- PUBLIC_INTERFACE -->
-  <!-- Health meta used by CI healthcheck script to validate readiness without booting React -->
-  <meta name="x-healthcheck" content="ok" />
-  <style>
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-      background: #f9fafb; color: #111827; }
-    .wrap { display: flex; min-height: 100vh; align-items: center; justify-content: center; }
-    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px 28px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.06); }
-    .ok { color: #10b981; font-weight: 600; }
-    .small { color: #6b7280; font-size: 12px; margin-top: 6px; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card" role="status" aria-live="polite">
-      <div>Frontend health: <span class="ok">OK</span></div>
-      <div class="small">Static endpoint for CI readiness checks.</div>
+  <head>
+    <meta charset="utf-8" />
+    <!-- PUBLIC_INTERFACE: Health marker for CI healthcheck -->
+    <meta name="x-healthcheck" content="ok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Health</title>
+    <style>
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif; background: #f9fafb; color: #111827; }
+      .wrap { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+      .card { background: #fff; padding: 24px 28px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+      .ok { color: #10b981; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="ok">ok</div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
