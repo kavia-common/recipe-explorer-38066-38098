@@ -215,7 +215,7 @@ function SignIn11235() {
           {/* Sign in button */}
           <button className="big-button style-11" data-role="sign-in-button" type="submit" aria-label="Sign In">
             <span className="big-button-label typo-58">Sign In</span>
-            <img className="big-button-icon" src="/figmaimages/figma_image_30_811.png" alt="Arrow Right" />
+            <img className="big-button-icon" src="/assets/figma_image_30_811.png" alt="Arrow Right" />
           </button>
         </form>
 
@@ -230,16 +230,16 @@ function SignIn11235() {
         <div className="social-btn google" role="button" tabIndex={0} aria-label="Sign in with Google">
           <div className="social-bg shadow-3"></div>
           {/* Composite vectors/images from figmaimages directory */}
-          <img className="google-vector-1" src="/figmaimages/figma_image_22_221.png" alt="Google icon base" />
+          <img className="google-vector-1" src="/assets/figma_image_22_221.png" alt="Google icon base" />
           <div className="google-seg seg-red" aria-hidden="true"></div>
           <div className="google-seg seg-green" aria-hidden="true"></div>
-          <img className="google-vector-4" src="/figmaimages/figma_image_22_256.png" alt="Google icon overlay" />
+          <img className="google-vector-4" src="/assets/figma_image_22_256.png" alt="Google icon overlay" />
         </div>
 
         <div className="social-btn facebook" role="button" tabIndex={0} aria-label="Sign in with Facebook">
           <div className="social-bg shadow-3"></div>
           <div className="fb-bg" aria-hidden="true"></div>
-          <img className="fb-mark" src="/figmaimages/figma_image_18_436.png" alt="Facebook logo" />
+          <img className="fb-mark" src="/assets/figma_image_18_436.png" alt="Facebook logo" />
           <div className="fb-overlay" aria-hidden="true"></div>
         </div>
 

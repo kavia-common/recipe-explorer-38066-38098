@@ -36,12 +36,18 @@ npm run start:serve
 ```
 The static server binds to `${REACT_APP_PORT:-3000}` and `HOST=0.0.0.0` if set.
 
+### `npm run healthcheck`
+Simple HTTP check for static served app (expects 200 on `${REACT_APP_HEALTHCHECK_PATH:-/}`):
+```bash
+npm run healthcheck
+```
+
 ### `npm test`
 Launches the test runner in non-watch mode by default via project script.
 
 ### `npm run build` and `npm run build:ci`
 Builds the app for production to the `build` folder.  
-The `build:ci` variant disables source maps by default to reduce memory usage.
+The `build:ci` variant disables source maps and caps memory to reduce CI usage.
 
 ### `npm run serve`
 Serves the production build statically on the configurable port (default 3000).  
