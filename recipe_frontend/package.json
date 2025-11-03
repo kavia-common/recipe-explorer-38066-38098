@@ -38,7 +38,7 @@
     "test": "cross-env CI=true react-scripts test --watchAll=false --passWithNoTests",
     "postinstall": "npx -y update-browserslist-db@latest || true",
     "eject": "react-scripts eject",
-    "prestart": "echo \"INFO: In CI, 'npm run start:serve' is preferred to avoid exit code 137 (watch server). 'npm start' auto-redirects when CI=true.\""
+    "prestart": "echo \"INFO: CI-safe mode: use 'npm run start:serve' (static build + serve). 'npm start' auto-redirects to it when CI=true to avoid exit code 137.\""
   },
   "eslintConfig": {
     "extends": "react-app"

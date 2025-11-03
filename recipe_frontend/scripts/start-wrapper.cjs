@@ -24,7 +24,7 @@ function run(cmd, args) {
   const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
 
   if (isCI() && !FORCE_DEV) {
-    console.log('[recipe_frontend] CI detected: using static serve to avoid watch server (exit 137).');
+    console.log('[recipe_frontend] CI detected: using static serve to avoid watch server (exit 137). Prefer `npm run start:serve`.');
     // Ensure minimal memory usage and deterministic port/host
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
@@ -34,7 +34,7 @@ function run(cmd, args) {
     process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
     process.env.NODE_OPTIONS = '--max-old-space-size=256';
 
-    // Build + serve path
+    // Build + serve path (includes internal healthcheck probe)
     return run(npmCmd, ['run', 'start:serve']);
   }
 
@@ -44,5 +44,7 @@ function run(cmd, args) {
   process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
   process.env.PORT = process.env.REACT_APP_PORT;
   process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=384';
+
+  // Start CRA dev server with react-app-rewired
   return run(npmCmd, ['run', '_start:dev']);
 })();

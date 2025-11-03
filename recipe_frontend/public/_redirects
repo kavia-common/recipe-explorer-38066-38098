@@ -1,3 +1,5 @@
 # PUBLIC_INTERFACE
-# Netlify/serve-style SPA redirects: send all paths to index.html
+# Redirect all routes to index.html so SPA works when served statically.
+# Netlify/serve compatible rule:
+#   /*    /index.html   200
 /*    /index.html   200
