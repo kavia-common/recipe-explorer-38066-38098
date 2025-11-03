@@ -1,3 +1,4 @@
 # PUBLIC_INTERFACE
-# Netlify/serve-compatible SPA redirect rules so deep links resolve to index.html
+# SPA redirects for static hosting (e.g., serve, Netlify-style)
+# Route all paths to index.html so React Router can handle them.
 /*    /index.html   200

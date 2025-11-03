@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Health</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE
-         Healthcheck marker meta, read by npm run healthcheck -->
+    <!-- PUBLIC_INTERFACE -->
+    <!-- Liveness marker used by CI healthcheck script -->
     <meta name="x-healthcheck" content="ok" />
+    <meta http-equiv="Cache-Control" content="no-store" />
   </head>
   <body>
-    <noscript>OK</noscript>
+    <h1>OK</h1>
+    <p>recipe_frontend static health endpoint.</p>
   </body>
 </html>
