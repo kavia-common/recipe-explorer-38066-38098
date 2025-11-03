@@ -1,5 +1,3 @@
-# PUBLIC_INTERFACE
-# robots rules for CI/static serve
+# Allow all
 User-agent: *
 Disallow:
-Sitemap: /sitemap.xml

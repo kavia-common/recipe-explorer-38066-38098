@@ -1,36 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
-    <!-- CRA entrypoint with built-in health meta for CI readiness -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="Recipe Explorer Frontend" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Recipe Explorer - browse, search and view recipes"
+    />
     <meta name="x-healthcheck" content="ok" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!-- Link design asset CSS so static serve has styles immediately -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/assets/common.css" />
-    <link rel="stylesheet" href="%PUBLIC_URL%/assets/screen-common.css" />
     <title>Recipe Explorer</title>
-    <style>
-      /* Minimal fallback styling while bundle loads */
-      .preload {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        padding: 24px; color: #111827;
-      }
-      .preload .muted { color: #6b7280; font-size: 14px; }
-    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-      <div class="preload">
-        <h1>Recipe Explorer</h1>
-        <p class="muted">Loading application…</p>
-      </div>
-    </div>
+    <div id="root"></div>
   </body>
 </html>
