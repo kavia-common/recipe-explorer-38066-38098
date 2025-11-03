@@ -1,1 +1,1 @@
-This is a placeholder text file to avoid 404s for favicon.ico in CI. Replace with a real icon if desired.
+This is a placeholder text file for favicon. In CI this avoids missing file errors. Replace with a real icon in production.
