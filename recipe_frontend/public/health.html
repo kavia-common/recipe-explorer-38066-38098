@@ -1,20 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <!-- PUBLIC_INTERFACE: Static healthcheck sentinel -->
-    <meta name="x-healthcheck" content="ok" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>OK</title>
-    <style>
-      html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-      .ok { display: flex; align-items: center; justify-content: center; height: 100vh; color: #16a34a; background: #f6faf9; }
-      .ok strong { margin-left: 8px; }
-    </style>
+    <meta charset="utf-8"/>
+    <title>health</title>
+    <!-- PUBLIC_INTERFACE: healthcheck indicator -->
+    <meta name="x-healthcheck" content="ok">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0"/>
   </head>
   <body>
-    <div class="ok" role="status" aria-label="Health OK">✔ <strong>ok</strong></div>
+    ok
   </body>
 </html>

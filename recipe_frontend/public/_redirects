@@ -1,3 +1,4 @@
 # PUBLIC_INTERFACE
-# Netlify/serve-style SPA redirect config
-/*    /index.html   200
+# SPA redirects for static hosting (e.g., Netlify/serve)
+# Route all paths to index.html so client-side routing works.
+/*   /index.html   200
