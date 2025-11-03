@@ -1,3 +1,4 @@
 # PUBLIC_INTERFACE
-# Redirect all routes to index.html for SPA behavior
+# Netlify-style SPA redirects; many static servers accept this convention.
+# Fallback all routes to index.html
 /*    /index.html   200

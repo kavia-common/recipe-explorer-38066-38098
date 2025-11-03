@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- PUBLIC_INTERFACE -->
-    <!-- App base HTML: includes healthcheck meta so / returns 200 + ok marker without heavy runtime -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Healthcheck meta (also injected at runtime by src/index.js) -->
+    <!-- PUBLIC_INTERFACE -->
     <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Recipe Explorer - a modern React frontend for browsing recipes."
+      content="Recipe Explorer - a lightweight React app"
     />
     <title>Recipe Explorer</title>
   </head>
   <body>
-    <noscript>JavaScript is required to run this application.</noscript>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- Healthcheck marker is present even before React boots -->
   </body>
 </html>
