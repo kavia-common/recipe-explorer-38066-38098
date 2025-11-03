@@ -17,7 +17,7 @@ In the project directory, you can run:
 Runs the app in development mode (hot-reload).  
 Open http://localhost:3000 to view it in your browser.
 
-> CI/non-interactive environments should use `npm run start:serve` (build and static serve) to avoid the orchestrator killing a long-running, higher-memory dev server (exit code 137). If you need the dev server, use `npm run start:ci` or `npm run start:lowmem` which cap memory and disable auto-opening the browser.
+> IMPORTANT (CI): Prefer `npm run start:serve` for CI/non-interactive runs. This avoids orchestrator SIGKILL (137) by using a low-memory static serve. If hot reload is required, use `npm run start:ci` or `npm run start:lowmem` (caps memory and disables browser auto-open). Ensure `.env` exists (see `.env.example`) and `REACT_APP_PORT` is set if your environment mandates a specific port.
 
 ### `npm run start:ci`
 Starts the CRA dev server in CI-friendly mode:
