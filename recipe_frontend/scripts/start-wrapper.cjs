@@ -20,10 +20,29 @@ function run(cmd, args) {
 (function main() {
   const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 
-  if (isCI()) {
-    console.log('[recipe_frontend] CI detected: redirecting to start:serve to avoid watch server (exit 137).');
+  // Allow explicit override to dev server even in CI when absolutely necessary
+  const FORCE_DEV = /^(1|true|yes)$/i.test(String(process.env.FORCE_DEV || ''));
+
+  if (isCI() && !FORCE_DEV) {
+    console.log('[recipe_frontend] CI detected: using static serve to avoid watch server (exit 137).');
+    // Ensure minimal memory usage and deterministic port/host
+    process.env.BROWSER = 'none';
+    process.env.CI = 'true';
+    process.env.HOST = process.env.HOST || '0.0.0.0';
+    process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
+    process.env.PORT = process.env.REACT_APP_PORT;
+    process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
+    process.env.NODE_OPTIONS = '--max-old-space-size=256';
+
+    // Build + serve path
     return run(npmCmd, ['run', 'start:serve']);
   }
 
+  // Local dev or explicit override
+  process.env.BROWSER = 'none';
+  process.env.HOST = process.env.HOST || '0.0.0.0';
+  process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
+  process.env.PORT = process.env.REACT_APP_PORT;
+  process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=384';
   return run(npmCmd, ['run', '_start:dev']);
 })();
