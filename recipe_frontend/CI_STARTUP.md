@@ -3,6 +3,8 @@
 
 - Preferred (low memory, avoids exit code 137):
   npm run start:serve
+  # or
+  npm run start:serve:prebuilt
 
 - If hot reload is required in CI (watch mode uses more memory):
   REACT_APP_PORT=${REACT_APP_PORT:-3000} npm run start:ci
