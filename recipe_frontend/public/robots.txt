@@ -1,4 +1,4 @@
 # PUBLIC_INTERFACE
-# Basic robots.txt
+# Basic robots rules for CI/test deployments
 User-agent: *
 Disallow:

@@ -9,6 +9,7 @@ import App from './App';
  * static servers or external probes can verify the app is up by fetching /index.html.
  * For static serve, we can't add a server route. We expose a meta marker instead.
  * The healthcheck script looks for: <meta name="x-healthcheck" content="ok">
+ * A fallback static page also exists at /health.html including the same meta.
  */
 (function injectHealthMeta() {
   try {

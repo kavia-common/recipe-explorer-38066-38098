@@ -1,2 +1,3 @@
-# Redirect all routes to index.html for SPA support when statically served
-/*   /index.html   200
+# PUBLIC_INTERFACE
+# Ensure SPA deep links route to index.html in static hosting/serve
+/*    /index.html   200
