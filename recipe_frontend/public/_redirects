@@ -1,3 +1,3 @@
 # PUBLIC_INTERFACE
-# Ensure all routes fallback to index.html for SPA behavior during static serving
+# Redirect all routes to index.html for SPA when using static server
 /*    /index.html   200
