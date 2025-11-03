@@ -1,3 +1,6 @@
 # PUBLIC_INTERFACE
 User-agent: *
-Allow: /
+Disallow:
+
+# Healthcheck endpoint is static and safe to fetch
+# /health.html returns 200 with <meta name="x-healthcheck" content="ok">
