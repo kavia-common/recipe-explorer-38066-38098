@@ -1,4 +1,4 @@
 # PUBLIC_INTERFACE
-# Controls web crawlers; harmless default to reduce logs and 404s.
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: /sitemap.xml

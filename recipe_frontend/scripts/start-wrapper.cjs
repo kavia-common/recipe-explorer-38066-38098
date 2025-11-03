@@ -42,20 +42,25 @@ function run(cmd, args) {
     process.env.PORT = port;
     // Default disable sourcemaps in CI unless explicitly enabled
     process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
-    process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=256';
+    // Cap memory lower to further reduce OOM chances
+    if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
+      process.env.NODE_OPTIONS = '--max-old-space-size=256';
+    }
 
     // Build + serve path (includes internal healthcheck probe)
     return run(npmCmd, ['run', 'start:serve']);
   }
 
-  // Local dev or explicit override
+  // Local dev or explicit override (non-CI)
   process.env.BROWSER = 'none';
   process.env.HOST = process.env.HOST || '0.0.0.0';
   const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
   process.env.REACT_APP_PORT = port;
   process.env.PORT = port;
   // Keep dev memory moderate; can be overridden by env
-  process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=384';
+  if (!process.env.NODE_OPTIONS || !/--max-old-space-size=/.test(process.env.NODE_OPTIONS)) {
+    process.env.NODE_OPTIONS = '--max-old-space-size=384';
+  }
 
   // Start CRA dev server with react-app-rewired
   return run(npmCmd, ['run', '_start:dev']);
