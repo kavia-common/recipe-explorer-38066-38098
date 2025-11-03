@@ -15,3 +15,4 @@ Notes:
 - Deprecation warnings from webpack-dev-server are harmless; static serve avoids them.
 - Browserslist database auto-updates on postinstall; warnings are non-blocking in CI.
 - Configure port via REACT_APP_PORT or let it default to 3000.
+- See .env.example for all supported environment variables. In CI, the orchestrator sets them automatically.
