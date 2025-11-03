@@ -1,3 +1,2 @@
-# PUBLIC_INTERFACE
-# Redirect all non-file paths to index.html for SPA routing when using static `serve`
-/*  /index.html  200
+# Netlify/serve-style SPA redirects
+/*    /index.html   200

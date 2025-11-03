@@ -11,6 +11,7 @@ import App from './App';
  * The healthcheck script looks for: <meta name="x-healthcheck" content="ok">
  * This tag is also present statically in public/index.html to pass probes even before React boot
  * and in public/health.html for a purely static readiness endpoint.
+ * Ensure these files exist in recipe_frontend/public for CI readiness.
  * A fallback static page also exists at /health.html including the same meta.
  * Note: public/index.html also includes this meta statically to support cases where
  * React hasn't booted yet.
