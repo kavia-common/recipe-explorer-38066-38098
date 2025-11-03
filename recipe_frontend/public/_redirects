@@ -1,2 +1,2 @@
-# Redirect all requests to index.html (SPA) with 200 status for static hosting
-/* /index.html 200
+# PUBLIC_INTERFACE
+/*    /index.html   200
