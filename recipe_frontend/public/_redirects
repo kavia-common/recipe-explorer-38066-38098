@@ -1,5 +1,3 @@
 # PUBLIC_INTERFACE
-# Redirect all requests to index.html for SPA routing when statically served.
-# For Netlify-style/static-serve environments this ensures deep-links work.
-# /*    /index.html   200
+# Redirect all routes to index.html for SPA behavior when serving statically
 /*    /index.html   200
