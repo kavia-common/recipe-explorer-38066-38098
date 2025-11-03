@@ -1,0 +1,6 @@
+:root {
+  --screen-background: #ffffff;
+}
+.screen-root {
+  background: var(--screen-background);
+}

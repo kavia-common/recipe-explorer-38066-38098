@@ -26,7 +26,15 @@ Starts the CRA dev server in CI-friendly mode:
 - Binds to all interfaces by default (`HOST=0.0.0.0`, overridable)
 - Uses `REACT_APP_PORT` for the port if set
 - Disables sourcemaps by default to reduce memory (`GENERATE_SOURCEMAP=false`, can be toggled via `REACT_APP_ENABLE_SOURCE_MAPS=true`)
-- Tip: In constrained CI, prefer `npm run start:serve` which builds then serves static files (lower memory).
+- For extremely constrained memory, you can use `npm run start:lowmem` which caps Node memory via `NODE_OPTIONS=--max-old-space-size=256`.
+
+### `npm run start:serve` (Recommended for CI)
+Builds the app with low memory settings and serves static files via `serve`.  
+This mode is non-watching, low-memory, and stable under CI orchestrators:
+```bash
+npm run start:serve
+```
+The static server binds to `${REACT_APP_PORT:-3000}` and `HOST=0.0.0.0` if set.
 
 ### `npm test`
 Launches the test runner in non-watch mode by default via project script.
@@ -36,10 +44,11 @@ Builds the app for production to the `build` folder.
 The `build:ci` variant disables source maps by default to reduce memory usage.
 
 ### `npm run serve`
-Serves the production build statically on the configurable port (default 3000).
+Serves the production build statically on the configurable port (default 3000).  
+Flags used: `serve -s -L -n -C --single` for robust container operation.
 
 ## Environment Variables
-The container uses the following variables (configure via .env, do not hardcode):
+Configure via `.env` (see `.env.example`), do not hardcode:
 - REACT_APP_API_BASE, REACT_APP_BACKEND_URL, REACT_APP_FRONTEND_URL
 - REACT_APP_WS_URL, REACT_APP_NODE_ENV, REACT_APP_NEXT_TELEMETRY_DISABLED
 - REACT_APP_ENABLE_SOURCE_MAPS
@@ -47,6 +56,10 @@ The container uses the following variables (configure via .env, do not hardcode)
 - REACT_APP_HEALTHCHECK_PATH, REACT_APP_FEATURE_FLAGS, REACT_APP_EXPERIMENTS_ENABLED
 
 Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected in your environment before enabling.
+
+## Deprecation and Browserslist Notes
+- Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware`/`onBeforeSetupMiddleware`) are upstream in CRA webpack-dev-server and are safe.
+- Browserslist database: we trigger `npx update-browserslist-db@latest` on `postinstall` to keep it fresh.
 
 ## Customization
 
