@@ -43,7 +43,7 @@ npm run healthcheck
 ```
 
 ### `npm test`
-Launches the test runner in non-watch mode by default via project script.
+Launches the test runner in non-watch mode by default via project script, with `CI=true` and `--passWithNoTests` to avoid long watches or failures when no tests are present.
 
 ### `npm run build` and `npm run build:ci`
 Builds the app for production to the `build` folder.  
@@ -64,7 +64,7 @@ Configure via `.env` (see `.env.example`), do not hardcode:
 Tip: If binding to all interfaces, set `HOST=0.0.0.0`. Verify this is expected in your environment before enabling.
 
 ## Deprecation and Browserslist Notes
-- Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware`/`onBeforeSetupMiddleware`) are upstream in CRA webpack-dev-server and are safe.
+- Webpack Dev Server deprecation warnings (`onAfterSetupMiddleware` / `onBeforeSetupMiddleware`) are upstream in CRA/webpack-dev-server and safe. They do not affect builds. CI path (`start:serve`) avoids running the dev server.
 - Browserslist database: we trigger `npx update-browserslist-db@latest` on `postinstall` to keep it fresh.
 
 ## Customization

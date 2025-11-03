@@ -18,8 +18,8 @@
     "serve": "serve -s build -L -n -C --single -l ${REACT_APP_PORT:-3000}",
     "start:serve": "npm run build:ci && npm run serve",
     "ci": "npm run start:serve",
-    "healthcheck": "node -e \"require('http').get('http://localhost:'+(process.env.REACT_APP_PORT||3000)+(process.env.REACT_APP_HEALTHCHECK_PATH||'/'),res=>{console.log('health',res.statusCode);process.exit(res.statusCode===200?0:1)}).on('error',()=>process.exit(1))\"",
-    "test": "react-scripts test --watchAll=false",
+    "healthcheck": "node -e \"require('http').get('http://localhost:'+((process.env.REACT_APP_PORT)||3000)+((process.env.REACT_APP_HEALTHCHECK_PATH)||'/'),res=>{console.log('health',res.statusCode);process.exit(res.statusCode===200?0:1)}).on('error',()=>process.exit(1))\"",
+    "test": "cross-env CI=true react-scripts test --watchAll=false --passWithNoTests",
     "postinstall": "npx -y update-browserslist-db@latest || true",
     "eject": "react-scripts eject"
   },
