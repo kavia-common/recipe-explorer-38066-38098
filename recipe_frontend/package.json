@@ -11,7 +11,7 @@
     "cross-env": "^7.0.3"
   },
   "scripts": {
-    "start": "node -e \"const {spawnSync}=require('child_process');const isCI=String(process.env.CI).toLowerCase()==='true';if(isCI){console.log('[recipe_frontend] CI detected: redirecting to start:serve to avoid exit code 137.');process.exit(123);}const r=spawnSync('npm',['run','_start:dev'],{stdio:'inherit',shell:true});process.exit(r.status||0);\"; exitCode=$?; if [ \"$exitCode\" -eq 123 ]; then npm run start:serve; else test \"$exitCode\" -eq 0 || npm run _start:dev; fi",
+    "start": "node -e \"const {spawnSync}=require('child_process');const isCI=String(process.env.CI||'').toLowerCase()==='true';if(isCI){console.log('[recipe_frontend] CI detected: redirecting to start:serve to avoid exit code 137.');process.exit(123);}const r=spawnSync('npm',['run','_start:dev'],{stdio:'inherit',shell:true});process.exit(r.status||0);\"; rc=$?; if [ \"$rc\" -eq 123 ]; then npm run start:serve; else if [ \"$rc\" -ne 0 ]; then npm run _start:dev; fi; fi",
     "_start:dev": "react-scripts start",
     "start:ci": "cross-env BROWSER=none CI=true HOST=0.0.0.0 PORT=$REACT_APP_PORT NODE_OPTIONS=--max-old-space-size=384 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",
     "start:lowmem": "cross-env BROWSER=none CI=true HOST=0.0.0.0 PORT=$REACT_APP_PORT NODE_OPTIONS=--max-old-space-size=256 GENERATE_SOURCEMAP=${REACT_APP_ENABLE_SOURCE_MAPS:-false} react-scripts start",

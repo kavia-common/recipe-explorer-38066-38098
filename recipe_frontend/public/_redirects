@@ -1,3 +1,5 @@
 # PUBLIC_INTERFACE
-# SPA redirects for static hosting
-/*   /index.html   200
+# SPA rewrite rules for static hosting and local `serve`:
+# - Redirect all paths to index.html to support client-side routing (react-router)
+# - Preserve 200 status for SPA behavior
+/*  /index.html  200
