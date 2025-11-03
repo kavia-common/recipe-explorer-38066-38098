@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- PUBLIC_INTERFACE -->
+    <!--
+      PUBLIC INTERFACE
+      index.html - Application entry HTML for CRA.
+      Includes x-healthcheck meta for CI readiness checks and supports static serving.
+      Do not inject environment-specific values here; use .env variables and React code.
+    -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- PUBLIC_INTERFACE -->
+    <!-- Health meta for CI healthcheck to pass without booting React -->
     <meta name="x-healthcheck" content="ok" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Recipe Explorer - a lightweight React app"
+      content="Recipe Explorer - browse, search, and view recipes"
     />
     <title>Recipe Explorer</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>JavaScript is required to run this app.</noscript>
     <div id="root"></div>
-    <!-- Healthcheck marker is present even before React boots -->
   </body>
 </html>

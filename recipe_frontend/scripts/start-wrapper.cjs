@@ -4,6 +4,11 @@
  * start-wrapper.cjs
  * Detect CI and redirect to static serve to avoid dev-server termination (exit 137).
  * Otherwise start the dev server with moderate memory cap.
+ *
+ * Notes:
+ * - In CI, we never launch the webpack dev server by default. This prevents long-running
+ *   watch processes from being SIGKILLed by the orchestrator (exit 137).
+ * - We also sanitize env and ensure predictable HOST/PORT.
  */
 const { spawnSync } = require('child_process');
 
@@ -15,7 +20,9 @@ function isCI() {
 
 function run(cmd, args) {
   const r = spawnSync(cmd, args, { stdio: 'inherit', env: process.env });
-  process.exit(r.status ?? 0);
+  // normalize null/undefined to 0
+  const code = (typeof r.status === 'number') ? r.status : 0;
+  process.exit(code);
 }
 
 (function main() {
@@ -30,11 +37,12 @@ function run(cmd, args) {
     process.env.BROWSER = 'none';
     process.env.CI = 'true';
     process.env.HOST = process.env.HOST || '0.0.0.0';
-    process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
-    process.env.PORT = process.env.REACT_APP_PORT;
+    const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
+    process.env.REACT_APP_PORT = port;
+    process.env.PORT = port;
     // Default disable sourcemaps in CI unless explicitly enabled
     process.env.GENERATE_SOURCEMAP = String(process.env.REACT_APP_ENABLE_SOURCE_MAPS || 'false');
-    process.env.NODE_OPTIONS = '--max-old-space-size=256';
+    process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=256';
 
     // Build + serve path (includes internal healthcheck probe)
     return run(npmCmd, ['run', 'start:serve']);
@@ -43,8 +51,9 @@ function run(cmd, args) {
   // Local dev or explicit override
   process.env.BROWSER = 'none';
   process.env.HOST = process.env.HOST || '0.0.0.0';
-  process.env.REACT_APP_PORT = process.env.REACT_APP_PORT || process.env.PORT || '3000';
-  process.env.PORT = process.env.REACT_APP_PORT;
+  const port = String(process.env.REACT_APP_PORT || process.env.PORT || '3000');
+  process.env.REACT_APP_PORT = port;
+  process.env.PORT = port;
   // Keep dev memory moderate; can be overridden by env
   process.env.NODE_OPTIONS = process.env.NODE_OPTIONS || '--max-old-space-size=384';
 

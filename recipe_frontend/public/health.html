@@ -1,16 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
     <!-- PUBLIC_INTERFACE -->
+    <!--
+      PUBLIC INTERFACE
+      health.html - Static health page used by CI healthcheck.
+      Contains the x-healthcheck meta tag so readiness checks succeed without booting React.
+    -->
+    <meta charset="utf-8" />
     <meta name="x-healthcheck" content="ok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>OK</title>
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; color: #111; }
-      .ok { display: inline-block; padding: 8px 12px; border-radius: 8px; background: #e6ffed; border: 1px solid #b7eb8f; color: #135200; }
+      html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .ok { display:flex; align-items:center; justify-content:center; height:100vh; color:#16a34a; }
     </style>
   </head>
   <body>
-    <div class="ok" role="status" aria-live="polite">ok</div>
+    <div class="ok" role="status" aria-label="Service healthy">OK</div>
   </body>
 </html>
