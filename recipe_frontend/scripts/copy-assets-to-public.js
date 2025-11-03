@@ -53,9 +53,10 @@ function copyDir(srcDir, dstDir) {
   copyDir(repoAssets, publicAssets);
 
   // Copy figmaimages specifically if present at repo root
+  // These are flattened under /public/assets/ so refer to them as /assets/<file>
   const repoFigma = path.join(repoAssets, 'figmaimages');
   if (fs.existsSync(repoFigma)) {
-    copyDir(repoFigma, path.join(publicAssets));
+    copyDir(repoFigma, publicAssets);
   }
 
   // Done

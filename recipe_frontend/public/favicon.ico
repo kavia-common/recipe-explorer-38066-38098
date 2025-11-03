@@ -1,1 +1,1 @@
-[placeholder text file representing favicon.ico to avoid 404 in CI static serve; replace with a real icon in production]
+placeholder: favicon will be provided by deployment

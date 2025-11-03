@@ -6,9 +6,10 @@
 
 - Healthcheck after startup:
   npm run healthcheck
+  (Checks for HTTP 200 at http://127.0.0.1:${REACT_APP_PORT:-3000}/ and presence of `<meta name="x-healthcheck" content="ok">` injected by src/index.js)
 
 - If you need hot reload (dev server), use capped-memory variants:
   REACT_APP_PORT=3000 npm run start:ci
   REACT_APP_PORT=3000 npm run start:lowmem
 
-Note: Running `npm start` with CI=true will auto-redirect to `start:serve` to prevent watch server termination by the orchestrator.
+Note: Running `npm start` with CI=true will auto-redirect to `start:serve` to prevent watch server termination by the orchestrator. Prefer static serve in CI.

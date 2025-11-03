@@ -60,7 +60,8 @@ The `build:ci` variant disables source maps and caps memory to reduce CI usage.
 
 ### `npm run serve`
 Serves the production build statically on the configurable port (default 3000).  
-Flags used: `serve -s -L -n -C --single` for robust container operation.
+Flags used: `serve -s -L -n -C --single` for robust container operation.  
+SPA redirects are provided via `public/_redirects` to ensure deep links (e.g., `/sign-in`) resolve to `index.html`.
 
 ## Environment Variables
 Configure via `.env` (see `.env.example`), do not hardcode:
