@@ -1,2 +1,3 @@
-# Redirect all routes to index.html for SPA
+# PUBLIC_INTERFACE
+# Ensure SPA routes resolve to index.html under static serving
 /*    /index.html   200
