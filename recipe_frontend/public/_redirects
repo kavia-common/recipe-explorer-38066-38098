@@ -1,4 +1,2 @@
-# PUBLIC_INTERFACE
-# Redirect all routes to index.html for SPA behavior (used by static serve)
-# This file is compatible with static servers like Netlify and serve's --single option
-/*    /index.html   200
+# Redirect all routes to index.html for SPA support when statically served
+/*   /index.html   200

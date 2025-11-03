@@ -5,11 +5,21 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Recipe Explorer Frontend" />
+    <meta
+      name="description"
+      content="Recipe Explorer - browse and view recipes"
+    />
     <title>Recipe Explorer</title>
+    <!-- Healthcheck meta injected at build-time fallback; runtime injection also occurs in src/index.js -->
+    <meta name="x-healthcheck" content="ok" />
+    <!-- Link common assets (copied by prebuild) to ensure styles for Sign In screen are available even before JS loads -->
+    <link rel="stylesheet" href="/assets/common.css" />
+    <link rel="stylesheet" href="/assets/screen-common.css" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- Optional: assets helper; safe if not present -->
+    <script defer src="/assets/app.js"></script>
   </body>
 </html>

@@ -14,7 +14,7 @@ Behavior:
   <meta name="x-healthcheck" content="ok">
 - The healthcheck script hits http://127.0.0.1:${REACT_APP_PORT:-3000}${REACT_APP_HEALTHCHECK_PATH:-/}
   and confirms HTTP 200 and the presence of the meta tag.
-- For SPA routes, public/_redirects ensures deep links resolve to index.html when using static serve.
+- For SPA routes, public/_redirects ensures deep links resolve to index.html when using static serve (already included).
 
 Environment:
 - Configure .env from .env.example. Critical vars:
