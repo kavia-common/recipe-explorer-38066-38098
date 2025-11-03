@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <!-- PUBLIC_INTERFACE -->
+    <!-- Index entry for React app with healthcheck meta for CI/static probes -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!-- Health meta so '/' can be probed as fallback -->
+    <!-- Healthcheck marker (checked by scripts/healthcheck) -->
     <meta name="x-healthcheck" content="ok" />
+    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Recipe Explorer - a lightweight React app"
+      content="Recipe Explorer - Browse, search, and view various recipes."
     />
     <title>Recipe Explorer</title>
   </head>
