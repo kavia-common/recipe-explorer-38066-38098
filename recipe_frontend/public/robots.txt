@@ -1,4 +1,2 @@
-# PUBLIC_INTERFACE
 User-agent: *
-Allow: /
-Sitemap: /sitemap.xml
+Disallow:
